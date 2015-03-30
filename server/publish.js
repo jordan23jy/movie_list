@@ -3,3 +3,8 @@
  *  this.ready();
  * });
  */
+
+
+Meteor.publish('movies', function (/* args */) {
+  return Movies.find();
+});
