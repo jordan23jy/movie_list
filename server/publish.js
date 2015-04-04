@@ -8,3 +8,7 @@
 Meteor.publish('movies', function (/* args */) {
   return Movies.find();
 });
+
+Meteor.publish('nba', function (/* args */) {
+  return Nba.find();
+});

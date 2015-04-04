@@ -2,12 +2,7 @@
 	<div class="movies page">
 	<h3>Movies Watchlist</h3>
 
-	<form class="main form page">
-		<div class="form-group">
-			<label for="movieTitle">Movie Title</label>
-			<input name="movieTitle" type="text" class="form-control">
-		</div>
-	</form>
+		{{> MovieInput}}
 
 		<div class="wrapper">
 			{{#each movies}}

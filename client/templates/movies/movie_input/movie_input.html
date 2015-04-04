@@ -1,0 +1,29 @@
+<template name="MovieInput">
+  <form class="main form page movieadd" name="movieadd">
+		<div class="form-group">
+			<label for="movieTitle">Movie Title</label>
+			<input 	name="movieTitle" class="form-control typeahead"
+							type="text" placeholder="Movie title"/>
+
+			{{#if autocomplete}}
+				<div class="autocomplete" >
+					{{#if autocompleteLoading}}
+						<p class="spin">Loading</p>
+					{{else}}
+						{{#each autocomplete}}
+							{{#if Error}}
+								<p>{{Error}}</p>
+							{{else}}
+								<input type="radio" name="autocomplete" id="{{id}}" value="{{id}}">
+								<label for="{{id}}">{{title}} ({{release_date}})</label>
+							{{/if}}
+						{{/each}}
+					{{/if}}
+				</div>
+			{{/if}}
+		</div>
+
+	</form>
+</template>
+
+
