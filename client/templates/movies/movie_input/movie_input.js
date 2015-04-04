@@ -1,4 +1,5 @@
 
+
 /*****************************************************************************/
 /* MovieInput: Event Handlers */
 /*****************************************************************************/
@@ -6,28 +7,43 @@ Template.MovieInput.events({
 	'submit form': function (e, tmpl) {
 		e.preventDefault();
 
-		var a = getFormData('form[name=movieadd]');
-		console.log(a);
-
-
+		// var movieData = getFormData('form[name=movieadd]');
 		var $movieTitle = $(e.target).find('input[name=movieTitle]');
 
-		var post = {
-			movieTitle: $movieTitle.val()
+		// get moviedb movie id from list that is currently checked in DOM
+		var movieId = $('input[type=radio]:checked').attr('id');
+
+		var currentId = getFormData('form').autocomplete;
+
+		var autocompleteId = getFormData('form').autocomplete;
+
+		// insert selected movie into database with selected movie on autocomplete
+		if (autocompleteId) {
+			mdb.getMoviedbDetails(autocompleteId);
+			$movieTitle.val('');
+
+		} else {
+			var post = {
+				movie_title: $movieTitle.val()
+			}
+
+			// validate if post is not empty
+			if (!post) {
+				return alert('Please fill in movie title');
+			};
+
+			// insert selected movie into database with data from moviedb
+			Meteor.call('movieInsert', post, function (err, res) {
+				if (err) {
+					console.log(err.reason)
+				} else {
+					$movieTitle.val('')
+				}
+			});
+
 		}
 
-		// validate if post is not empty
-		if (!post.movieTitle) {
-			return alert('Please fill in movie title');
-		};
-
-		Meteor.call('movieInsert', post, function (err, res) {
-			if (err) {
-				console.log(err.reason)
-			} else {
-				$movieTitle.val('')
-			}
-		});
+		clearAutocomplete();
 	},
 
 	// search for movies when typing
@@ -81,7 +97,7 @@ Template.MovieInput.events({
 				$('input[name=autocomplete]').prop('checked',false);
 
 				// get list from movie db
-				getLists(e.target.value);
+				mdb.getLists(e.target.value);
 			}, 700);
 
 			Session.set("typingTimer", typingTimer);
@@ -103,7 +119,7 @@ var clearAutocomplete = function() {
 	Session.set('movieSearch', false);
 }
 
-getFormData = function(selector) {
+var getFormData = function(selector) {
 	var data = {};
 
 	$(selector).serializeArray().forEach(function(obj) {
@@ -131,14 +147,6 @@ Template.MovieInput.helpers({
 	autocomplete: function () {
 		return Session.get('movieSearch');
 	},
-	style: function() {
-		var text = $('.movieadd input[type=text]');
-		var textTop = $('.movieadd input[type=text]').offset().top + 4;
-		var textHeight = $('.movieadd input[type=text]').height();
-		var top = textTop + textHeight;
-		var textLeft = $('.movieadd input[type=text]').offset().left;
-		return "top:" + top + "px; left:" + textLeft + "px;";
-	},
 	movie: function() {
 		Meteor.call('getMovies', Session.get('query'), function(err, results) {
 			console.log(JSON.parse(results));
@@ -151,6 +159,7 @@ Template.MovieInput.helpers({
 /* MovieInput: Lifecycle Hooks */
 /*****************************************************************************/
 Template.MovieInput.created = function () {
+	clearAutocomplete()
 };
 
 Template.MovieInput.rendered = function () {

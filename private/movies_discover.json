@@ -1,0 +1,78 @@
+[
+	{
+		"genre": "popular",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/7mgKeg18Qml5nJQa56RBZO7dIu0.jpg"
+	},
+	{
+		"genre": "action",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/7BhTIyySTmmqNaoguSPjZAVMoQG.jpg"
+	},
+	{
+		"genre": "adventure",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/xMgZFtO8bsSZZnMnglLi81SvGBO.jpg"
+	},
+	{
+		"genre": "animation",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/irHmdlkdJphmk4HPfyAQfklKMbY.jpg"
+	},
+	{
+		"genre": "comedy",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/ssHx0GSOxkxLrLHh6xK3Znae56k.jpg"
+	},
+	{
+		"genre": "crime",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/v4A3xzuHPgmxiO9C8EGbKg6yplZ.jpg"
+	},
+	{
+		"genre": "documentary",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/xWO4W1gnDJqZKfDVYf9wXFPva6i.jpg"
+	},
+	{
+		"genre": "drama",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/bt6DhdALyhf90gReozoQ0y3R3vZ.jpg"
+	},
+	{
+		"genre": "family",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/7s8LMwA8HuwDZveqbgSqeR0tA5v.jpg"
+	},
+	{
+		"genre": "fantasy",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg"
+	},
+	{
+		"genre": "foreign",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/vaPFCkEJpuo3CcMkluVMhlgA5z9.jpg"
+	},
+	{
+		"genre": "history",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/fsjg1cEgXpO9TkxtmiAcLU8rnHd.jpg"
+	},
+	{
+		"genre": "horror",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/6UPlIYKxZqUR6Xbpgu1JKG0J7UC.jpg"
+	},
+	{
+		"genre": "mystery",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/1rs0ddr6qiUczKQJMsLUReRsO9V.jpg"
+	},
+	{
+		"genre": "romance",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/hxpHrgnhXgIib4PuWlhz1YL5OlM.jpg"
+	},
+	{
+		"genre": "science fiction",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/s4fd4EfqBFYMbZmIdhNdCLwFrhO.jpg"
+	},
+	{
+		"genre": "thriller",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/c1OSRvorPXvGtFka7mgV6Jcw6jd.jpg"
+	},
+	{
+		"genre": "war",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/dmMCi0jRd593dLzS3oTcktaNLxf.jpg"
+	},
+	{
+		"genre": "western",
+		"img_backdrop": "https://image.tmdb.org/t/p/w1280/aYjHZA57KQKamXeIGRJjSZF5WA4.jpg"
+	}
+]

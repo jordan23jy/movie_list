@@ -1,7 +1,8 @@
 <template name="MovieItem">
   <div class="post">
-  	<div class="post-content">
-			<h3>{{movieTitle}}</h3>
+  	<div class="post-content" name="movieItem">
+			<h3>{{movie_title}}	{{#if release_date}}({{release_date}}){{/if}}	<span class="delete" id="{{_id}}">Delete</span></h3>
   	</div>
   </div>
 </template>
+

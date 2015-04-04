@@ -1,33 +1,23 @@
 /*****************************************************************************/
-/* MovieItem: Event Handlers */
+/* MoviesDiscover: Event Handlers */
 /*****************************************************************************/
-Template.MovieItem.events({
-	'click .post-content': function (e, tmpl) {
-		e.preventDefault();
-
-		var _id = $(e.target).find('div[name=movieItem]').attr('id');
-
-		console.log(this._id);
-		Movies.remove(this._id);
-	}
+Template.MoviesDiscover.events({
 });
 
 /*****************************************************************************/
-/* MovieItem: Helpers */
+/* MoviesDiscover: Helpers */
 /*****************************************************************************/
-Template.MovieItem.helpers({
-
+Template.MoviesDiscover.helpers({
 });
 
 /*****************************************************************************/
-/* MovieItem: Lifecycle Hooks */
+/* MoviesDiscover: Lifecycle Hooks */
 /*****************************************************************************/
-Template.MovieItem.created = function () {
+Template.MoviesDiscover.created = function () {
 };
 
-Template.MovieItem.rendered = function () {
+Template.MoviesDiscover.rendered = function () {
 };
 
-Template.MovieItem.destroyed = function () {
+Template.MoviesDiscover.destroyed = function () {
 };
-

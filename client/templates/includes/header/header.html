@@ -9,15 +9,15 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Movies</a>
+  			<a class="navbar-brand" href="/">Movies</a>
   		</div>
 
   		<!-- Collect the nav link, forms, and other content for toggling -->
   		<div class="collapse navbar-collapse" id="navigation">
   			<ul class="nav navbar-nav">
-  				<li class="active"><a href="#">Watchlist</a></li>
-  				<li class=""><a href="#">Events</a></li>
-  				<li class=""><a href="#">Create List</a></li>
+  				<li class="active"><a href="{{pathFor 'watchlist'}}">Watchlist</a></li>
+  				<li class=""><a href="{{pathFor 'discover'}}">Events</a></li>
+  				<li class=""><a href="{{pathFor 'event.create'}}">Create List</a></li>
   			</ul>
 
   			<ul class="nav navbar-nav navbar-right">
