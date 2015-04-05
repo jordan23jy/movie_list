@@ -1,0 +1,37 @@
+<template name="MovieItemInfo">
+  <div>
+  	<p>{{vote_average}}</p>
+  	<h1>{{title}}</h1>
+  	<p>{{overview}}</p>
+
+  	<ul class="list-inline">
+  		<li><span>Release Date </span>{{release_date}}</li>
+  		<li><span>Runtime </span>{{runtime}}</li>
+  	</ul>
+
+		<h3>Director</h3>
+		{{#each director}}
+		<div class="row director">
+				<div class="col-xs-4 img-profile">
+					<img class="img-rounded" src="http://image.tmdb.org/t/p/w45{{profile_path}}" alt="{{name}}">
+				</div>
+				<div class="col-xs-8 crew-name">
+					<p class="cast">{{name}}</p>
+				</div>
+		</div>
+		{{/each}}
+
+		<h3>Cast</h3>
+		{{#each cast}}
+  	<div class="row crew">
+  		<div class="col-xs-4 img-profile">
+  			<img class="img-rounded" src="http://image.tmdb.org/t/p/w45{{profile_path}}" alt="{{name}}">
+  		</div>
+  		<div class="col-xs-8 crew-name">
+  			<p class="cast">{{name}} <span class="character">as {{character}}</span></p>
+  		</div>
+  	</div>
+  	{{/each}}
+
+  </div>
+</template>

@@ -2,6 +2,14 @@
 /* MovieDetailsItem: Event Handlers */
 /*****************************************************************************/
 Template.MovieDetailsItem.events({
+	'click .movie-item': function () {
+
+		// console.log(this.id);
+		// return Session.set('selectedMovieId', {id: this.id})
+
+		mdb.getMovieInfo(this.id);
+
+	}
 });
 
 /*****************************************************************************/

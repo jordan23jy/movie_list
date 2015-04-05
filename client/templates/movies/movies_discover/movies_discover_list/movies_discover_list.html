@@ -1,9 +1,16 @@
 <template name="MoviesDiscoverList">
 	<div class="row movie-item">
-		<div class="col-md-12">
+
+		<div class="col-md-5 movie-info">
+			{{> MovieItemInfo}}
+		</div>
+
+		<div class="col-md-7 movie-item">
 		{{#each movie}}
 			{{> MovieDetailsItem}}
 		{{/each}}
 		</div>
+
 	</div>
+
 </template>
