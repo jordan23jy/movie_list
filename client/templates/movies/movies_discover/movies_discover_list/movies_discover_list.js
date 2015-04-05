@@ -1,23 +1,26 @@
 /*****************************************************************************/
-/* MoviesDiscover: Event Handlers */
+/* MoviesDiscoverList: Event Handlers */
 /*****************************************************************************/
-Template.MoviesDiscover.events({
+Template.MoviesDiscoverList.events({
 });
 
 /*****************************************************************************/
-/* MoviesDiscover: Helpers */
+/* MoviesDiscoverList: Helpers */
 /*****************************************************************************/
-Template.MoviesDiscover.helpers({
+Template.MoviesDiscoverList.helpers({
+	movie: function () {
+		return Session.get('movieDiscover')
+	}
 });
 
 /*****************************************************************************/
-/* MoviesDiscover: Lifecycle Hooks */
+/* MoviesDiscoverList: Lifecycle Hooks */
 /*****************************************************************************/
-Template.MoviesDiscover.created = function () {
+Template.MoviesDiscoverList.created = function () {
 };
 
-Template.MoviesDiscover.rendered = function () {
+Template.MoviesDiscoverList.rendered = function () {
 };
 
-Template.MoviesDiscover.destroyed = function () {
+Template.MoviesDiscoverList.destroyed = function () {
 };

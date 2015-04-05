@@ -9,6 +9,6 @@ Meteor.publish('movies', function (/* args */) {
   return Movies.find();
 });
 
-Meteor.publish('nba', function (/* args */) {
-  return Nba.find();
+Meteor.publish('movie_genre', function (/* args */) {
+  return MovieGenre.find();
 });

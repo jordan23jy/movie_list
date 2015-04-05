@@ -1,0 +1,97 @@
+[
+	{
+		"genreId": 0,
+		"genre": "popular",
+		"img_backdrop_path": "/7mgKeg18Qml5nJQa56RBZO7dIu0.jpg"
+	},
+	{
+		"genreId": 28,
+		"genre": "action",
+		"img_backdrop_path": "/7BhTIyySTmmqNaoguSPjZAVMoQG.jpg"
+	},
+	{
+		"genreId": 12,
+		"genre": "adventure",
+		"img_backdrop_path": "/xMgZFtO8bsSZZnMnglLi81SvGBO.jpg"
+	},
+	{
+		"genreId": 16,
+		"genre": "animation",
+		"img_backdrop_path": "/irHmdlkdJphmk4HPfyAQfklKMbY.jpg"
+	},
+	{
+		"genreId": 35,
+		"genre": "comedy",
+		"img_backdrop_path": "/ssHx0GSOxkxLrLHh6xK3Znae56k.jpg"
+	},
+	{
+		"genreId": 80,
+		"genre": "crime",
+		"img_backdrop_path": "/v4A3xzuHPgmxiO9C8EGbKg6yplZ.jpg"
+	},
+	{
+		"genreId": 99,
+		"genre": "documentary",
+		"img_backdrop_path": "/xWO4W1gnDJqZKfDVYf9wXFPva6i.jpg"
+	},
+	{
+		"genreId": 18,
+		"genre": "drama",
+		"img_backdrop_path": "/bt6DhdALyhf90gReozoQ0y3R3vZ.jpg"
+	},
+	{
+		"genreId": 10751,
+		"genre": "family",
+		"img_backdrop_path": "/7s8LMwA8HuwDZveqbgSqeR0tA5v.jpg"
+	},
+	{
+		"genreId": 14,
+		"genre": "fantasy",
+		"img_backdrop_path": "/4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg"
+	},
+	{
+		"genreId": 10769,
+		"genre": "foreign",
+		"img_backdrop_path": "/vaPFCkEJpuo3CcMkluVMhlgA5z9.jpg"
+	},
+	{
+		"genreId": 36,
+		"genre": "history",
+		"img_backdrop_path": "/fsjg1cEgXpO9TkxtmiAcLU8rnHd.jpg"
+	},
+	{
+		"genreId": 27,
+		"genre": "horror",
+		"img_backdrop_path": "/6UPlIYKxZqUR6Xbpgu1JKG0J7UC.jpg"
+	},
+	{
+		"genreId": 9648,
+		"genre": "mystery",
+		"img_backdrop_path": "/1rs0ddr6qiUczKQJMsLUReRsO9V.jpg"
+	},
+	{
+		"genreId": 10749,
+		"genre": "romance",
+		"img_backdrop_path": "/hxpHrgnhXgIib4PuWlhz1YL5OlM.jpg"
+	},
+	{
+		"genreId": 878,
+		"genre": "science fiction",
+		"img_backdrop_path": "/s4fd4EfqBFYMbZmIdhNdCLwFrhO.jpg"
+	},
+	{
+		"genreId": 53,
+		"genre": "thriller",
+		"img_backdrop_path": "/c1OSRvorPXvGtFka7mgV6Jcw6jd.jpg"
+	},
+	{
+		"genreId": 10752,
+		"genre": "war",
+		"img_backdrop_path": "/dmMCi0jRd593dLzS3oTcktaNLxf.jpg"
+	},
+	{
+		"genreId": 37,
+		"genre": "western",
+		"img_backdrop_path": "/aYjHZA57KQKamXeIGRJjSZF5WA4.jpg"
+	}
+]
