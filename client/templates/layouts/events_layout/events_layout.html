@@ -1,0 +1,28 @@
+<template name="EventsLayout">
+
+
+    <div class="col-md-6 event-container">
+      <div class="col-md-12 event-input">
+        {{> EventCreate}}
+      </div>
+
+      <div class="col-md-12 event-item">
+        {{#each events}}
+          {{> EventItem}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="col-md-6 movie-item">
+      <div class="row movie-input">
+        {{> MovieInput}}
+      </div>
+
+      <div class="row movie-item">
+        {{#each selectedEvent}}
+          {{> MovieItem}}
+        {{/each}}
+      </div>
+
+    </div>
+</template>

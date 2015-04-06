@@ -1,0 +1,19 @@
+<template name="MoviesWatchlistLayout">
+	<div class="row movie-input">
+		{{> MovieInput}}
+	</div>
+
+  <div class="row movie-item">
+
+  	<div class="col-md-5 movie-info">
+  		{{> MovieItemInfo}}
+  	</div>
+
+  	<div class="col-md-7 movie-item">
+  	  {{#each movie}}
+  			{{> MovieItem}}
+  		{{/each}}
+  	</div>
+
+  </div>
+</template>

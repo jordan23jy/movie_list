@@ -19,9 +19,9 @@ Template.MovieItemInfo.helpers({
 		var directoryArray = [];
 
 		for (var i = 0; i < 10; i++) {
-			if (crewArray[i].department === "Directing") {
-				directoryArray.push(crewArray[i])
-			}
+				if (crewArray[i].job === "Director") {
+					directoryArray.push(crewArray[i])
+				}
 		}
 		return directoryArray;
 	},
@@ -35,6 +35,15 @@ Template.MovieItemInfo.helpers({
 		}
 		return castArrayLimit;
 	},
+
+	genre: function () {
+		var genre = [];
+
+		$.each(this.genres, function(index, value) {
+			genre[index] = value.name
+		})
+		return genre.join(', ');
+	}
 
 });
 

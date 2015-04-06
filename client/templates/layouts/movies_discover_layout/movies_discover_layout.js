@@ -1,26 +1,26 @@
 /*****************************************************************************/
-/* MoviesDiscoverList: Event Handlers */
+/* MoviesDiscoverLayout: Event Handlers */
 /*****************************************************************************/
-Template.MoviesDiscoverList.events({
+Template.MoviesDiscoverLayout.events({
 });
 
 /*****************************************************************************/
-/* MoviesDiscoverList: Helpers */
+/* MoviesDiscoverLayout: Helpers */
 /*****************************************************************************/
-Template.MoviesDiscoverList.helpers({
+Template.MoviesDiscoverLayout.helpers({
 	movie: function () {
 		return Session.get('movieDiscover')
 	}
 });
 
 /*****************************************************************************/
-/* MoviesDiscoverList: Lifecycle Hooks */
+/* MoviesDiscoverLayout: Lifecycle Hooks */
 /*****************************************************************************/
-Template.MoviesDiscoverList.created = function () {
+Template.MoviesDiscoverLayout.created = function () {
 };
 
-Template.MoviesDiscoverList.rendered = function () {
+Template.MoviesDiscoverLayout.rendered = function () {
 };
 
-Template.MoviesDiscoverList.destroyed = function () {
+Template.MoviesDiscoverLayout.destroyed = function () {
 };

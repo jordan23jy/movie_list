@@ -1,27 +1,26 @@
 /*****************************************************************************/
-/* MovieList: Event Handlers */
+/* EventsLayout: Event Handlers */
 /*****************************************************************************/
-Template.MovieList.events({
-
+Template.EventsLayout.events({
 });
 
 /*****************************************************************************/
-/* MovieList: Helpers */
+/* EventsLayout: Helpers */
 /*****************************************************************************/
-Template.MovieList.helpers({
-	movies: function () {
-		return Movies.find();
+Template.EventsLayout.helpers({
+	events: function () {
+		return Events.find();
 	}
 });
 
 /*****************************************************************************/
-/* MovieList: Lifecycle Hooks */
+/* EventsLayout: Lifecycle Hooks */
 /*****************************************************************************/
-Template.MovieList.created = function () {
+Template.EventsLayout.created = function () {
 };
 
-Template.MovieList.rendered = function () {
+Template.EventsLayout.rendered = function () {
 };
 
-Template.MovieList.destroyed = function () {
+Template.EventsLayout.destroyed = function () {
 };

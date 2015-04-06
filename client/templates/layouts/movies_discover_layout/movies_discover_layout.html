@@ -1,4 +1,4 @@
-<template name="MoviesDiscoverList">
+<template name="MoviesDiscoverLayout">
 	<div class="row movie-item">
 
 		<div class="col-md-5 movie-info">
@@ -6,11 +6,12 @@
 		</div>
 
 		<div class="col-md-7 movie-item">
-		{{#each movie}}
-			{{> MovieDetailsItem}}
-		{{/each}}
+		  {{#each movie}}
+				{{> MovieItem}}
+			{{/each}}
 		</div>
 
 	</div>
 
 </template>
+

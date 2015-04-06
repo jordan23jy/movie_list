@@ -2,13 +2,18 @@
 /* MovieItem: Event Handlers */
 /*****************************************************************************/
 Template.MovieItem.events({
-	'click .post-content': function (e, tmpl) {
-		e.preventDefault();
+	'click [name=poster]': function () {
 
-		var _id = $(e.target).find('div[name=movieItem]').attr('id');
+		// return Session.set('selectedMovieId', {id: this.id})
+		mdb.getMovieInfo(this.id);
+	},
 
-		console.log(this._id);
-		Movies.remove(this._id);
+	'click .delete': function () {
+		Movies.remove(this._id)
+	},
+
+	'click .vote': function () {
+		Movies.update({_id: this._id}, {$inc: {votesSum: 1}})
 	}
 });
 
@@ -16,7 +21,19 @@ Template.MovieItem.events({
 /* MovieItem: Helpers */
 /*****************************************************************************/
 Template.MovieItem.helpers({
+	backdropUrl: function () {
+		var discover = this;
+		var SIZE = "w780";
 
+		return images_uri + SIZE + this.backdrop_path
+	},
+
+	posterUrl: function () {
+		var discover = this;
+		var SIZE = "w185";
+
+		return images_uri + SIZE + this.poster_path
+	}
 });
 
 /*****************************************************************************/
@@ -31,3 +48,4 @@ Template.MovieItem.rendered = function () {
 Template.MovieItem.destroyed = function () {
 };
 
+var images_uri = "http://image.tmdb.org/t/p/";

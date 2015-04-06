@@ -13,22 +13,23 @@ Template.MovieInput.events({
 		// get moviedb movie id from list that is currently checked in DOM
 		var movieId = $('input[type=radio]:checked').attr('id');
 
-		var currentId = getFormData('form').autocomplete;
-
+		// movieId of moviedb with selection from autocomplete suggestion
 		var autocompleteId = getFormData('form').autocomplete;
 
 		// insert selected movie into database with selected movie on autocomplete
 		if (autocompleteId) {
-			mdb.getMoviedbDetails(autocompleteId);
+			mdb.insertMovieInfo(autocompleteId);
 			$movieTitle.val('');
-
 		} else {
 			var post = {
-				movie_title: $movieTitle.val()
+				title: $movieTitle.val(),
+				votes: {},
+				votesSum: 0,
+				youtube: '',
 			}
 
 			// validate if post is not empty
-			if (!post) {
+			if ($movieTitle.val()) {
 				return alert('Please fill in movie title');
 			};
 
@@ -40,7 +41,6 @@ Template.MovieInput.events({
 					$movieTitle.val('')
 				}
 			});
-
 		}
 
 		clearAutocomplete();
@@ -96,7 +96,7 @@ Template.MovieInput.events({
 				// clear all checked properties in list when typing
 				$('input[name=autocomplete]').prop('checked',false);
 
-				// get list from movie db
+				// API: get list from movie db
 				mdb.getLists(e.target.value);
 			}, 700);
 
