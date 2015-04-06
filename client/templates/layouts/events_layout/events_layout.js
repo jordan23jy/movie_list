@@ -10,7 +10,18 @@ Template.EventsLayout.events({
 Template.EventsLayout.helpers({
 	events: function () {
 		return Events.find();
-	}
+	},
+
+	movies: function () {
+		// var events = this;
+
+		// store event id when event is selected
+		var eventId = Session.get('selectedEventId');
+
+		// get movie list of selected event
+		return Movies.find({event_id: eventId});
+	},
+
 });
 
 /*****************************************************************************/

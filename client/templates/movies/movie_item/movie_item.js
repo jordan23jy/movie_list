@@ -12,8 +12,11 @@ Template.MovieItem.events({
 		Movies.remove(this._id)
 	},
 
-	'click .vote': function () {
-		Movies.update({_id: this._id}, {$inc: {votesSum: 1}})
+	'click .vote': function (e, tmpl) {
+		e.preventDefault();
+		console.log(this.event_id);
+
+		Meteor.call('upvote', this.event_id)
 	}
 });
 
@@ -33,6 +36,11 @@ Template.MovieItem.helpers({
 		var SIZE = "w185";
 
 		return images_uri + SIZE + this.poster_path
+	},
+
+	voters: function() {
+		console.log(this);
+		return this.voters.join(', ');
 	}
 });
 

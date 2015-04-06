@@ -3,8 +3,8 @@
 /*****************************************************************************/
 Template.EventItem.events({
 	'click .event-content': function () {
-		var selectedEvent = Events.findOne({_id: this._id});
-		Session.set('selectedEvent', selectedEvent);
+
+		Session.set('selectedEventId', this._id);
 	}
 });
 
@@ -12,8 +12,18 @@ Template.EventItem.events({
 /* EventItem: Helpers */
 /*****************************************************************************/
 Template.EventItem.helpers({
-	selectedEvent: function () {
-		return Session.get('selectedEvent').movies;
+	isMyEvent: function () {
+		var event = this;
+		return event.created_by_id === Meteor.userId();
+	},
+
+	hiddenClass: function(field) {
+		return isSet(this[field]) ? '' : '{display: none}';
+	},
+
+	followers: function () {
+		var event = this;
+		return event.followers.join(", ");
 	}
 });
 

@@ -1,7 +1,11 @@
 <template name="EventItem">
-  <div class="event-content">
-  	<h3>{{event_name}}</h3>
-  	<p>Location: {{location}}</p>
-  	<p>Time: {{time_start}}</p>
-  </div>
+	{{#if isMyEvent}}
+  	<div class="event-content">
+  		<h3>{{event_name}}</h3>
+  		<p class="location" style="{{hiddenClass 'location'}}">Location: {{location}}</p>
+  		<p class="time" style="{{hiddenClass 'time_start'}}">Time: {{time_start}}</p>
+  		<p class="followers">Followers: {{followers}}</p>
+  	</div>
+  {{/if}}
 </template>
+

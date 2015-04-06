@@ -16,20 +16,23 @@ Template.MovieInput.events({
 		// movieId of moviedb with selection from autocomplete suggestion
 		var autocompleteId = getFormData('form').autocomplete;
 
+
 		// insert selected movie into database with selected movie on autocomplete
 		if (autocompleteId) {
 			mdb.insertMovieInfo(autocompleteId);
 			$movieTitle.val('');
 		} else {
+		// insert manual data not from moviedb
 			var post = {
 				title: $movieTitle.val(),
-				votes: {},
-				votesSum: 0,
+				voters: {},
+				votes: 0,
 				youtube: '',
+				event_id: Session.get('selectedEventId'),
 			}
 
 			// validate if post is not empty
-			if ($movieTitle.val()) {
+			if (! $movieTitle.val()) {
 				return alert('Please fill in movie title');
 			};
 

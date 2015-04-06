@@ -2,9 +2,15 @@
 
 
     <div class="col-md-6 event-container">
-      <div class="col-md-12 event-input">
-        {{> EventCreate}}
-      </div>
+      {{#if currentUser}}
+        <div class="col-md-12 event-input">
+          {{> EventCreate}}
+        </div>
+      {{else}}
+        <div class="prompt-logIn">
+          <p>Please log in to add an event</p>
+        </div>
+      {{/if}}
 
       <div class="col-md-12 event-item">
         {{#each events}}
@@ -14,15 +20,22 @@
     </div>
 
     <div class="col-md-6 movie-item">
-      <div class="row movie-input">
-        {{> MovieInput}}
-      </div>
+      {{#if currentUser}}
+        <div class="row movie-input">
+          {{> MovieInput}}
+        </div>
+      {{else}}
+        <div class="prompt-logIn">
+          <p>Please log in to add a movie</p>
+        </div>
+      {{/if}}
 
       <div class="row movie-item">
-        {{#each selectedEvent}}
+        {{#each movies}}
           {{> MovieItem}}
         {{/each}}
       </div>
 
     </div>
+
 </template>

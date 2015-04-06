@@ -1,9 +1,11 @@
 <template name="EventCreate">
   <form class="form-horizontal">
-    <div class="form-group">
+    <div class="form-group {{errorClass 'event_name'}}">
       <label for="eventName" class="col-sm-2 control-label">Event Name</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" name="event_name" id="eventName" placeholder="Event Name">
+
+        <span class="help-block">{{errorMessage 'event_name'}}</span>
       </div>
     </div>
     <div class="form-group">
@@ -31,4 +33,5 @@
     </div>
   </form>
 </template>
+
 

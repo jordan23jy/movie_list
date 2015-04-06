@@ -5,20 +5,35 @@ Template.EventCreate.events({
 	'submit form': function (e, tmpl) {
 		e.preventDefault();
 
+		// set as current event when submitted
+
+
+
 		var eventDetails = getFormData('form');
+		var username = Meteor.user().username;
+		var userId = Meteor.userId();
 
 		_.extend(eventDetails, {
-			created_by: Meteor.userId(),
+			created_by_id: userId,
 			created_date: new Date(),
-			followed_by: []
+			followers: [username]
 		})
 
+		var errors = {};
+		if (!eventDetails.event_name) {
+			errors.event_name = "Please fill in event name";
+			return Session.set('submitError', errors);
+		}
+
 		Meteor.call('eventInsert', eventDetails, function(err, res) {
-			if (err)
+			if (err) {
 				console.log(err.reason);
-			else
-				$('form').val('');
+			} else {
+				Session.set('selectedEventId', res);
+				$('form input').val('');
+			}
 		})
+
 	}
 });
 
@@ -26,6 +41,14 @@ Template.EventCreate.events({
 /* EventCreate: Helpers */
 /*****************************************************************************/
 Template.EventCreate.helpers({
+	errorMessage: function (field) {
+		return Session.get('submitError')[field];
+	},
+
+	errorClass: function (field) {
+		return !!Session.get('submitError')[field] ? 'has-error' : '';
+	}
+
 });
 
 /*****************************************************************************/
