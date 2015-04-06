@@ -22,28 +22,7 @@ Template.MovieInput.events({
 			mdb.insertMovieInfo(autocompleteId);
 			$movieTitle.val('');
 		} else {
-		// insert manual data not from moviedb
-			var post = {
-				title: $movieTitle.val(),
-				voters: {},
-				votes: 0,
-				youtube: '',
-				event_id: Session.get('selectedEventId'),
-			}
-
-			// validate if post is not empty
-			if (! $movieTitle.val()) {
-				return alert('Please fill in movie title');
-			};
-
-			// insert selected movie into database with data from moviedb
-			Meteor.call('movieInsert', post, function (err, res) {
-				if (err) {
-					console.log(err.reason)
-				} else {
-					$movieTitle.val('')
-				}
-			});
+			alert('Select from movie list');
 		}
 
 		clearAutocomplete();
