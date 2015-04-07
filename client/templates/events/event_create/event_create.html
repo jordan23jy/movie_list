@@ -2,56 +2,44 @@
 {{#if isEditing}}
   <form name="edit" class="form-horizontal">
     <div class="form-group {{errorClass 'event_name'}}">
-      <label for="eventName" class="col-sm-2 control-label">Event Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party" value="{{event_name}}">
-        <!-- Error message if blank -->
-        <span class="help-block">{{errorMessage 'event_name'}}</span>
-      </div>
+      <label for="eventName">Event Name</label>
+      <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party" value="{{event_name}}">
+      <!-- Error message if blank -->
+      <span class="help-block">{{errorMessage 'event_name'}}</span>
     </div>
     <div class="form-group">
-      <label for="location" class="col-sm-2 control-label">Location</label>
-      <div class="col-sm-10">
+      <label for="location" class="control-label">Location</label>
         <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Plaza Hotel" value="{{location}}">
-      </div>
     </div>
     <div class="form-group">
-      <label for="time" class="col-sm-2 control-label">Time</label>
-      <div class="col-sm-10">
+      <label for="time" class="control-label">Time</label>
         <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 4pm" value="{{time}}">
-      </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="save" name="save" class="btn btn-default">Save Edit</button>
-        <button type="cancel" name="cancel" class="btn btn-default">Cancel</button>
-      </div>
+        <button type="submit" name="save" class="btn btn-default">Save Edit</button>
+        <button type="submit" name="cancel" class="btn btn-default">Cancel</button>
     </div>
   </form>
 {{else}}
   <form name="create" class="form-horizontal">
+
     <div class="form-group {{errorClass 'event_name'}}">
-      <label for="eventName" class="col-sm-2 control-label">Event Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party">
-        <!-- Error message if blank -->
-        <span class="help-block">{{errorMessage 'event_name'}}</span>
-      </div>
+      <label for="eventName">Event Name</label>
+      <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party">
+      <!-- Error message if blank -->
+      <span class="help-block">{{errorMessage 'event_name'}}</span>
     </div>
     <div class="form-group">
-      <label for="location" class="col-sm-2 control-label">Location</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Plaza Hotel">
-      </div>
+      <label for="location">Location</label>
+      <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Plaza Hotel">
+    </div>
+
+    <div class="form-group">
+      <label for="time">Time</label>
+      <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 4pm">
     </div>
     <div class="form-group">
-      <label for="time" class="col-sm-2 control-label">Time</label>
-      <div class="col-sm-10">
-          <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 4pm">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="">
         <button type="submit" class="btn btn-default">Create</button>
       </div>
     </div>

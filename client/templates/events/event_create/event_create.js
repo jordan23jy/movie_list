@@ -62,7 +62,7 @@ Template.EventCreate.events({
 		})
 	},
 
-	'click button[type=cancel]': function () {
+	'click button[name=cancel]': function () {
 		return Session.set('isEditing', false);
 	}
 
