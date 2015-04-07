@@ -26,6 +26,14 @@ Template.EventItem.events({
 
 	'click [name=saveEdit]': function () {
 		Session.set('isEditing', {status: false});
+	},
+
+	'click [name=delete]': function () {
+		Meteor.call('removeEvent', this._id);
+
+		var currentId = Session.get('selectedEventId')
+		if (this._id === currentId)
+			Session.set('selectedEventId', false)
 	}
 });
 
