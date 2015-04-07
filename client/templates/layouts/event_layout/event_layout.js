@@ -40,8 +40,7 @@ Template.EventLayout.helpers({
 	isNotFollowing: function () {
 		// var events = this;
 		var userId = Meteor.userId();
-		return Events.find({followers_id: userId}) ? false : true;
-		// return events.followers_id.indexOf(userId) > -1 ? false : true;
+		return events.followers_id.indexOf(userId) > -1 ? false : true;
 	},
 
 	isNotLoggedIn: function () {

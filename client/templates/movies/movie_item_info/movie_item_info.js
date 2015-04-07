@@ -9,7 +9,7 @@ Template.MovieItemInfo.events({
 /*****************************************************************************/
 Template.MovieItemInfo.helpers({
 	data: function () {
-		// return Session.get('getMovieInfo');
+		return Session.get('getMovieInfo');
 	},
 
 	director: function () {

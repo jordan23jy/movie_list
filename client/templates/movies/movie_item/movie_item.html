@@ -1,8 +1,8 @@
 <template name="MovieItem">
 	<div class="col-xs-12 movie-item">
 
-		<div class="col-xs-4">
-			<img name="poster" class="img-responsive" src="{{posterUrl}}" alt="{{title}}">
+		<div class="col-xs-4" data-toggle="modal" data-target="#moviePoster" name="poster">
+			<img class="img-responsive" src="{{posterUrl}}" alt="{{title}}">
 		</div>
 
 		<div class="col-xs-8">
@@ -35,7 +35,6 @@
 			<div class="col-xs-12 delete">
 				<p>Delete</p>
 			</div>
-
 
 		</div>
 

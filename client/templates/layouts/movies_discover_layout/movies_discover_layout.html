@@ -1,17 +1,16 @@
 <template name="MoviesDiscoverLayout">
 	<div class="row movie-item">
 
-		<div class="col-md-5 movie-info">
-			{{> MovieItemInfo}}
-		</div>
-
-		<div class="col-md-7 movie-item">
-		  {{#each movie}}
+		{{#each movie}}
+			<div class="col-md-6 movie-item">
 				{{> MovieItem}}
-			{{/each}}
-		</div>
+			</div>
+		{{/each}}
 
 	</div>
 
+	<!-- Movie Info Modal -->
+	<!-- Will render when movie item is clicked -->
+	{{> MovieItemInfo}}
 </template>
 

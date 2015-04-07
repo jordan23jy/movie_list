@@ -5,7 +5,9 @@ Template.MovieItem.events({
 	'click [name=poster]': function () {
 
 		// return Session.set('selectedMovieId', {id: this.id})
+		// call moviedb api
 		mdb.getMovieInfo(this.id);
+		Session.get('selectedMovieId')
 	},
 
 	'click .delete': function () {
@@ -39,6 +41,10 @@ Template.MovieItem.helpers({
 	voters: function () {
 		console.log(this);
 		return this.voters.join(', ');
+	},
+
+	movieInfo: function () {
+		return Session.get('getMovieInfo');
 	}
 });
 
