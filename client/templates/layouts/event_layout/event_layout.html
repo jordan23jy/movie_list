@@ -1,0 +1,70 @@
+<template name="EventLayout">
+
+	<!-- if not logged in -->
+		<!-- prompt to log in to follow event -->
+		<!-- render movie items but no vote -->
+		<!-- redder disquss api but may not insert comment -->
+	<!-- else if logged in -->
+		<!-- if not following event -->
+			<!-- prompt to follow event -->
+		<!-- else if following event -->
+			<!-- render movie insert -->
+			<!-- render movie items with vote -->
+			<!-- render disquss api -->
+
+	<!-- First column -->
+	<div class="col-md-6 movie-item">
+		<!-- if is editing -->
+		{{#if isEditing}}
+			{{> EventCreate}}
+		<!-- end if isEditing -->
+		{{/if}}
+
+		<!-- if not logged in -->
+		{{#if isNotLoggedIn}}
+			<!-- prompt to log in to follow event -->
+			<div class="prompt jumbotron text-center">
+				<h3>Log in and Accept Invitation</h3>
+			</div>
+			<!-- render event details -->
+			<div class="row event-item">
+				{{> EventItem}}
+			</div>
+			<!-- render movie items but no vote -->
+			<div class="row movie-item">
+			  {{#each movies}}
+			    {{> MovieItem}}
+			  {{/each}}
+			</div>
+		<!-- else if logged in -->
+		{{else}}
+			<!-- render event details -->
+			<div class="row event-item">
+				{{> EventItem}}
+			</div>
+			{{#if isNotFollowing}}
+			<!-- if not following event -->
+				<!-- prompt to follow event -->
+				<div class="prompt jumbotron text-center">
+				  <h3>Follow Event</h3>
+				</div>
+			<!-- else if following event -->
+			{{else}}
+				<!-- render movie insert -->
+				<div class="row movie-input">
+				  {{> MovieInput}}
+				</div>
+				<!-- render movie items with vote -->
+				<div class="row movie-item">
+				  {{#each movies}}
+				    {{> MovieItem}}
+				  {{/each}}
+				</div>
+			<!-- End if isNotFollowing -->
+			{{/if}}
+		<!-- End if isNotLoggedIn -->
+		{{/if}}
+	</div>
+	<!-- End first column -->
+
+</template>

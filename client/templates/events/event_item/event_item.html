@@ -1,11 +1,30 @@
 <template name="EventItem">
-	{{#if isMyEvent}}
-  	<div class="event-content">
-  		<h3>{{event_name}}</h3>
-  		<p class="location" style="{{hiddenClass 'location'}}">Location: {{location}}</p>
-  		<p class="time" style="{{hiddenClass 'time_start'}}">Time: {{time_start}}</p>
-  		<p class="followers">Followers: {{followers}}</p>
-  	</div>
-  {{/if}}
+	<div class="event-content" id="{{_id}}">
+		<h3>{{event_name}}</h3>
+		<p class="location" style="{{hiddenClass 'location'}}">Location: {{location}}</p>
+		<p class="time" style="{{hiddenClass 'time_start'}}">Time: {{time_start}}</p>
+		<p class="followers">Followers: {{followers}}</p>
+		<a href="{{pathFor 'event.id'}}" class="url" name="eventUrl">URL</a>
+
+		<!-- if is owner -->
+		{{#if isOwner}}
+			<!-- render edit button -->
+			<a href="{{pathFor 'event.id'}}" name="edit">Edit</a>
+		<!-- else if not owner -->
+		{{else}}
+			<!-- if is not following event -->
+			{{#if isNotFollowing}}
+				<!-- render follow button -->
+				<button class="follow btn btn-default" name="follow">Follow</button>
+			<!-- else if following -->
+			{{else}}
+				<!-- render unfollow button -->
+				<button class="follow btn btn-default" name="unfollow">Unfollow</button>
+			<!-- end if isNotFollowing -->
+			{{/if}}
+		<!-- end if isOwner -->
+		{{/if}}
+	</div>
 </template>
+
 

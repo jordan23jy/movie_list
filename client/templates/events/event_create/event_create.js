@@ -2,13 +2,10 @@
 /* EventCreate: Event Handlers */
 /*****************************************************************************/
 Template.EventCreate.events({
-	'submit form': function (e, tmpl) {
+	'submit form[name=create]': function (e, tmpl) {
 		e.preventDefault();
 
 		// set as current event when submitted
-
-
-
 		var eventDetails = getFormData('form');
 		var username = Meteor.user().username;
 		var userId = Meteor.userId();
@@ -16,7 +13,8 @@ Template.EventCreate.events({
 		_.extend(eventDetails, {
 			created_by_id: userId,
 			created_date: new Date(),
-			followers: [username]
+			followers: [username],
+			followers_id: [userId]
 		})
 
 		var errors = {};
@@ -33,8 +31,39 @@ Template.EventCreate.events({
 				$('form input').val('');
 			}
 		})
+	},
 
+	'submit form[name=edit]': function (e, tmpl) {
+		e.preventDefault();
+
+		var update = {};
+
+		// extract form details
+		update.eventDetails = getFormData('form');
+		update.event_id = this._id;
+
+		var errors = {};
+		if (!update.eventDetails.event_name) {
+			errors.event_name = "Please fill in event name";
+			return Session.set('submitError', errors);
+		}
+
+		// edit event when form in submitted
+		// reset form and reset isEditing status to false
+		Meteor.call('eventEdit', update, function(err, res) {
+			if (err) {
+				console.log(err.reason);
+			} else {
+				$('form input').val();
+				Session.set('isEditing', {status: false})
+			}
+		})
+	},
+
+	'click button[type=cancel]': function () {
+		return Session.set('isEditing', false);
 	}
+
 });
 
 /*****************************************************************************/
@@ -47,8 +76,11 @@ Template.EventCreate.helpers({
 
 	errorClass: function (field) {
 		return !!Session.get('submitError')[field] ? 'has-error' : '';
-	}
+	},
 
+	isEditing: function () {
+		return Session.get('isEditing').status;
+	}
 });
 
 /*****************************************************************************/

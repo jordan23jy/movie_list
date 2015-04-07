@@ -9,6 +9,10 @@ Meteor.publish('movies', function (/* args */) {
   return Movies.find();
 });
 
-Meteor.publish('events', function (/* args */) {
-  return Events.find();
+Meteor.publish('events', function (userId) {
+  return Events.find({followers_id: userId});
 });
+
+Meteor.publish('event', function (id) {
+	return Events.find({_id: id});
+})

@@ -1,13 +1,18 @@
 /*****************************************************************************/
-/* EventsLayout: Event Handlers */
+/* EventLayout: Event Handlers */
 /*****************************************************************************/
-Template.EventsLayout.events({
+Template.EventLayout.events({
+	'click [name=accept]': function () {
+		var event_id = this._id;
+
+		Meteor.call('accept', event_id);
+	}
 });
 
 /*****************************************************************************/
-/* EventsLayout: Helpers */
+/* EventLayout: Helpers */
 /*****************************************************************************/
-Template.EventsLayout.helpers({
+Template.EventLayout.helpers({
 	events: function () {
 		return Events.find();
 	},
@@ -28,36 +33,36 @@ Template.EventsLayout.helpers({
 		return Session.get('selectedEventId') ? true : false;
 	},
 
-	isEventMovie: function () {
+	checkMovie: function () {
 		// if no movies in event return false for template to render "Add a movie"
 		return Movies.findOne({event_id: Session.get('selectedEventId')}) ? true : false;
 	},
-
-	isFollowing: function () {
-		var event = this;
-
-		return event.followers_id.indexOf(Meteor.userId()) > -1 ? true : false
+	isNotFollowing: function () {
+		// var events = this;
+		var userId = Meteor.userId();
+		return Events.find({followers_id: userId}) ? false : true;
+		// return events.followers_id.indexOf(userId) > -1 ? false : true;
 	},
 
-	eventNotCreated: function () {
-		return Session.get('selectedEventId') ? false : true;
-	},
-
-	notLoggedIn: function () {
+	isNotLoggedIn: function () {
 		return Meteor.userId() ? false : true;
-	}
+	},
 
+	isEditing: function () {
+		return Session.get('isEditing').status;
+	}
 });
 
 /*****************************************************************************/
-/* EventsLayout: Lifecycle Hooks */
+/* EventLayout: Lifecycle Hooks */
 /*****************************************************************************/
-Template.EventsLayout.created = function () {
+Template.EventLayout.created = function () {
 };
 
-Template.EventsLayout.rendered = function () {
-	Session.set('isEditing', false);
+Template.EventLayout.rendered = function () {
+	Session.set('selectedEventId', this.data._id);
 };
 
-Template.EventsLayout.destroyed = function () {
+Template.EventLayout.destroyed = function () {
 };
+

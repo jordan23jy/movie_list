@@ -1,41 +1,69 @@
 <template name="EventsLayout">
 
-
+    <!-- First Column -->
+    <!-- Show only when loged in -->
     <div class="col-md-6 event-container">
       {{#if currentUser}}
         <div class="col-md-12 event-input">
           {{> EventCreate}}
         </div>
+
+        <div class="col-md-12 event-item">
+          {{#each events}}
+            {{> EventItem}}
+          {{/each}}
+        </div>
+
       {{else}}
-        <div class="prompt-logIn">
-          <p>Please log in to add an event</p>
+        <div class="col-md-12 log jumbotron text-center">
+          <h3>Please log in to add an event</h3>
         </div>
       {{/if}}
-
-      <div class="col-md-12 event-item">
-        {{#each events}}
-          {{> EventItem}}
-        {{/each}}
-      </div>
     </div>
 
-    <div class="col-md-6 movie-item">
-      {{#if currentUser}}
-        <div class="row movie-input">
-          {{> MovieInput}}
+    <!-- Second Column -->
+    <div class="col-md-6 movie-container">
+      <!-- If not logged in -->
+      {{#if notLoggedIn}}
+        <div class="log jumbotron text-center">
+          <h3>Please log in to add a movie</h3>
         </div>
       {{else}}
-        <div class="prompt-logIn">
-          <p>Please log in to add a movie</p>
-        </div>
+        <!-- else if logged in -->
+        <!-- If event not created -->
+        {{#if eventNotCreated}}
+          <div class="jumbotron text-center">
+            <h3>Please create an event</h3>
+          </div>
+        <!-- else if event created -->
+        {{else}}
+          <!-- If Logged In -->
+          {{#if currentUser}}
+            <div class="row movie-input">
+              {{> MovieInput}}
+            </div>
+            <!-- Show Movies from selected Event -->
+            <div class="row movie-item">
+              <!-- if is current event movie -->
+              {{#if isEventMovie}}
+                {{#each movies}}
+                  {{> MovieItem}}
+                {{/each}}
+              <!-- else if no movie in event -->
+              {{else}}
+                <!-- If no movie added -->
+                <div class="jumbotron text-center">
+                  <h3>Add a movie</h3>
+                </div>
+              <!-- End if is selected event movie -->
+              {{/if}}
+            </div>
+          <!-- End if current user -->
+          {{/if}}
+        <!-- End if event not created -->
+        {{/if}}
+      <!-- End if not logged in -->
       {{/if}}
-
-      <div class="row movie-item">
-        {{#each movies}}
-          {{> MovieItem}}
-        {{/each}}
-      </div>
-
     </div>
 
 </template>
