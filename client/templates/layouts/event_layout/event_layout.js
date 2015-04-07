@@ -18,15 +18,11 @@ Template.EventLayout.helpers({
 	},
 
 	movies: function () {
-		// var events = this;
-
 		// store event id when event is selected
 		var eventId = Session.get('selectedEventId');
 
 		// get movie list of selected event
-		return Movies.find({event_id: eventId});
-
-
+		return Movies.find({event_id: eventId}, {sort: {votes: -1}});
 	},
 
 	selectedEvent: function () {
@@ -48,7 +44,8 @@ Template.EventLayout.helpers({
 	},
 
 	isEditing: function () {
-		return Session.get('isEditing').status;
+		if (!! Session.get('isEditing'))
+			return Session.get('isEditing').status;
 	}
 });
 
@@ -59,7 +56,7 @@ Template.EventLayout.created = function () {
 };
 
 Template.EventLayout.rendered = function () {
-	Session.set('selectedEventId', this.data._id);
+	Sessions.set('selectedEventId', Router.current().params._id)
 };
 
 Template.EventLayout.destroyed = function () {

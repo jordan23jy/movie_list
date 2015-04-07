@@ -45,7 +45,8 @@ Template.EventItem.helpers({
 
 	followers: function () {
 		var event = this;
-		return event.followers.join(", ");
+		if (!! event.followers)
+			return event.followers.join(", ")
 	},
 
 	eventUrl: function () {
@@ -55,7 +56,8 @@ Template.EventItem.helpers({
 
 	isNotFollowing: function () {
 		var userId = Meteor.userId()
-		return this.followers_id.indexOf(userId) > -1 ? false : true;
+		if (!! this.followers_id)
+			return this.followers_id.indexOf(userId) > -1 ? false : true;
 	},
 
 	isOwner: function () {

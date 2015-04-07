@@ -9,19 +9,15 @@ Template.EventsLayout.events({
 /*****************************************************************************/
 Template.EventsLayout.helpers({
 	events: function () {
-		return Events.find();
+		return Events.find({}, {sort: {created_date: -1}});
 	},
 
 	movies: function () {
-		// var events = this;
-
 		// store event id when event is selected
 		var eventId = Session.get('selectedEventId');
 
 		// get movie list of selected event
-		return Movies.find({event_id: eventId});
-
-
+		return Movies.find({event_id: eventId}, {sort: {votes: -1}});
 	},
 
 	selectedEvent: function () {

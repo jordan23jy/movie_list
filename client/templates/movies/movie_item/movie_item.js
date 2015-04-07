@@ -39,8 +39,9 @@ Template.MovieItem.helpers({
 	},
 
 	voters: function () {
-		console.log(this);
-		return this.voters.join(', ');
+		if (this.voters_username) {
+			return this.voters_username.join(', ');
+		}
 	},
 
 	movieInfo: function () {

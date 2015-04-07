@@ -4,6 +4,7 @@
 Template.EventCreate.events({
 	'submit form[name=create]': function (e, tmpl) {
 		e.preventDefault();
+		Session.set('submitError', false)
 
 		// set as current event when submitted
 		var eventDetails = getFormData('form');
@@ -35,6 +36,7 @@ Template.EventCreate.events({
 
 	'submit form[name=edit]': function (e, tmpl) {
 		e.preventDefault();
+		Session.set('submitError', false)
 
 		var update = {};
 
@@ -90,6 +92,7 @@ Template.EventCreate.created = function () {
 };
 
 Template.EventCreate.rendered = function () {
+	Session.set('submitError', false)
 };
 
 Template.EventCreate.destroyed = function () {

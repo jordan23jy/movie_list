@@ -43,6 +43,10 @@ Template.MovieItemInfo.helpers({
 			genre[index] = value.name
 		})
 		return genre.join(', ');
+	},
+
+	selectedMovieId: function () {
+		return !! Session.get('selectedMovieId') ? true : false;
 	}
 
 });

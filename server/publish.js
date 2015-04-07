@@ -5,12 +5,12 @@
  */
 
 
-Meteor.publish('movies', function (/* args */) {
-  return Movies.find();
+Meteor.publish('movies', function (options) {
+  return Movies.find({}, options);
 });
 
-Meteor.publish('events', function (userId) {
-  return Events.find({followers_id: userId});
+Meteor.publish('events', function (userId, options) {
+  return Events.find({followers_id: userId}, options);
 });
 
 Meteor.publish('event', function (id) {
