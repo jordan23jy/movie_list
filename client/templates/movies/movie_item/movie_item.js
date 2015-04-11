@@ -45,6 +45,10 @@ Template.MovieItem.helpers({
 
 	movieInfo: function () {
 		return Session.get('getMovieInfo');
+	},
+
+	vote_average: function () {
+		return this.vote_average.toFixed(1);
 	}
 });
 
@@ -52,9 +56,11 @@ Template.MovieItem.helpers({
 /* MovieItem: Lifecycle Hooks */
 /*****************************************************************************/
 Template.MovieItem.created = function () {
+
 };
 
 Template.MovieItem.rendered = function () {
+	$("input.rating").rating();
 };
 
 Template.MovieItem.destroyed = function () {
