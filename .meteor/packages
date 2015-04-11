@@ -12,8 +12,8 @@ ian:accounts-ui-bootstrap-3
 accounts-password
 http
 jyong23:errors
-sergeyt:typeahead
 moviedb
 reactive-var
 accounts-facebook
 kevohagan:sweetalert
+sacha:spin

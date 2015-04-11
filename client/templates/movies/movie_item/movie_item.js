@@ -4,10 +4,9 @@
 Template.MovieItem.events({
 	'click [name=poster]': function () {
 
-		// return Session.set('selectedMovieId', {id: this.id})
 		// call moviedb api
 		mdb.getMovieInfo(this.id);
-		Session.get('selectedMovieId')
+		Session.set('selectedMovieId',  {id: this.id})
 	},
 
 	'click .delete': function () {

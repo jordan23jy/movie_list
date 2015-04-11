@@ -1,0 +1,81 @@
+$modal-max-width: 500px;
+$color: white;
+
+
+.modal-content {
+	max-width: $modal-max-width;
+	@include contrasted(black);
+	overflow: hidden;
+	font-size: 0.9em;
+
+	p {
+		font-size: 1.1em;
+	}
+	button.close {
+		color: white;
+	}
+	.list-inline {
+		margin-top: 25px;
+		li {
+			position: relative;
+			display: block;
+			span {
+				float: right;
+			}
+		}
+	}
+	.line-break {
+		margin: 10px auto;
+	}
+	h3 {
+		margin: 25px 25px;
+	}
+}
+
+.img-backdrop {
+	position: absolute;
+	opacity: 0.3;
+	top: 0;
+	left: 0;
+
+	img {
+		@include filter(blur(20px));
+		z-index: -1;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.modal-body {
+		background-color: transparent;
+}
+
+.director,
+.crew	{
+	margin: 15px auto;
+	position: relative;
+	.crew-name {
+		position: static;
+		@include center;
+		.character {
+			color: darken($color, 20%);
+			font-size: 0.9em;
+			.as {
+				color: darken($color, 50%);
+				// font-size: 0.8em;
+			}
+		}
+	}
+	.col-xs-6 {
+		padding: 0;
+	}
+	li {
+		display: block;
+		position: relative;
+
+	}
+	img {
+		@include border-radius(30%);
+	}
+}
+

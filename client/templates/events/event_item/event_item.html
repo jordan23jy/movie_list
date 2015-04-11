@@ -4,36 +4,30 @@
 		<p class="location" style="{{hiddenClass 'location'}}">Location: {{location}}</p>
 		<p class="time" style="{{hiddenClass 'time_start'}}">Time: {{time_start}}</p>
 		<p class="followers">Followers: {{followers}}</p>
-		<a href="{{pathFor 'event.id'}}" class="url" name="eventUrl">URL</a>
-
-		<!-- if is owner -->
-		{{#if isOwner}}
-			<!-- render edit button -->
-			<a href="{{pathFor 'event.id'}}" name="edit">Edit</a>
-			<a href="#" name="delete">Delete</a>
-		<!-- else if not owner -->
-		{{else}}
-			<!-- if is not following event -->
-			{{#if isNotFollowing}}
-				<!-- render follow button -->
-				<button class="follow btn btn-default" name="follow">Follow</button>
-			<!-- else if following -->
+		<span class="share-link"><i class="fa fa-link"></i> Share Link: </span><a href="http://localhost.com{{pathFor 'event.id'}}">http://localhost.com{{pathFor 'event.id'}}</a>
+		<div class="side-toggle">
+			<!-- if is owner -->
+			{{#if isOwner}}
+				<button class="edit"><i class="fa fa-cog"></i> Edit</button>
+				<button class="delete"><i class="fa fa-trash-o"></i> Delete</button>
+			<!-- else if not owner -->
 			{{else}}
-				<!-- render unfollow button -->
-				<button class="follow btn btn-default" name="unfollow">Unfollow</button>
-			<!-- end if isNotFollowing -->
+				<button class="details"><i class="fa fa-bars"></i> Details</button>
+				<!-- if is not following event -->
+				{{#if isNotFollowing}}
+					<!-- render follow button -->
+					<button class="follow" name="follow"><i class="fa fa-check"></i> Follow</button>
+				<!-- else if following -->
+				{{else}}
+					<!-- render unfollow button -->
+					<button class="unfollow" name="follow"><i class="fa fa-times"></i> Unfollow</button>
+				<!-- end if isNotFollowing -->
+				{{/if}}
+			<!-- end if isOwner -->
 			{{/if}}
-		<!-- end if isOwner -->
-		{{/if}}
-
-			<div class="input-group col-md-12">
-			  <span class="input-group-addon" id="copy">Share Link</span>
-			  <input type="text" class="form-control" placeholder="url" aria-describedby="copy" value="http://localhost.com{{pathFor 'event.id'}}">
-			</div>
-
-
-
+		</div>
 	</div>
 </template>
+
 
 

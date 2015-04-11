@@ -1,0 +1,23 @@
+.line-break	{
+	border-bottom: 1px solid white;
+	opacity: 0.5;
+	display: block;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+button {
+	background-color: transparent;
+	outline: none;
+	border: 1px solid white;
+	&.btn-style {
+		width: 100%;
+		padding: 15px;
+		i {
+		    margin-left: 10px;
+		    margin-right: 10px;
+		  }
+	}
+
+}

@@ -1,5 +1,3 @@
-
-
 /*****************************************************************************/
 /* MovieInput: Event Handlers */
 /*****************************************************************************/
@@ -8,7 +6,7 @@ Template.MovieInput.events({
 		e.preventDefault();
 
 		// var movieData = getFormData('form[name=movieadd]');
-		var $movieTitle = $(e.target).find('input[name=movieTitle]');
+		var $query = $(e.target).find('input[name=query]');
 
 		// get moviedb movie id from list that is currently checked in DOM
 		var movieId = $('input[type=radio]:checked').attr('id');
@@ -16,11 +14,10 @@ Template.MovieInput.events({
 		// movieId of moviedb with selection from autocomplete suggestion
 		var autocompleteId = getFormData('form').autocomplete;
 
-
 		// insert selected movie into database with selected movie on autocomplete
 		if (autocompleteId) {
 			mdb.insertMovieInfo(autocompleteId);
-			$movieTitle.val('');
+			$query.val('');
 		} else {
 			alert('Select from movie list');
 		}
@@ -29,33 +26,38 @@ Template.MovieInput.events({
 	},
 
 	// search for movies when typing
-	'keyup .movieadd input[name="movieTitle"]': function(e, tmpl) {
+	'keyup .searchbox': function(e, tmpl) {
 		e.preventDefault();
+		var $query = $('form').find('input[name=query]');
 
 		// User is navigating autocomplete list
-		if ([38, 40].indexOf(e.which) > -1) {
+		if ([38, 40, 27].indexOf(e.which) > -1) {
+			// if esc then clear search query
+			if (e.which == 27) {
+				$query.val('');
+				clearAutocomplete();
+			}
 
 			var checked = $('input[type=radio]:checked');
 			checked.prop('checked', false);
 
-			if (e.which == 38) { // uparrow
-
+			// uparrow
+			if (e.which == 38) {
+				// if no item is checked, check the last item
 				if (checked.length == 0) {
-					console.log('LAST!');
 					$('input[type=radio]:last').prop('checked', true);
-
 				} else {
+					// check the previous item on the list upwards
 					checked.prev().prev().prop('checked', true);
-					console.log(checked.prev().text());
 				}
-
-
-			} else if (e.which == 40) { // downarrow
+			// downarrow
+			} else if (e.which == 40) {
+				// if no item is checked, check the first item
 				if (checked.length == 0) {
 					$('input[type=radio]:first').prop('checked', true);
 				} else {
+					// check the next item on the list downward
 					checked.next().next().prop('checked', true);
-					console.log(checked.next().next().next().text());
 				}
 			}
 		}

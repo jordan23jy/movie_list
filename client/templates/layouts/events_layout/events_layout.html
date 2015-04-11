@@ -1,5 +1,4 @@
 <template name="EventsLayout">
-
     <!-- First Column -->
     <!-- Show only when loged in -->
     <div class="col-md-6 event-container">
@@ -9,9 +8,17 @@
         </div>
 
         <div class="col-md-12 event-item">
-          {{#each events}}
-            {{> EventItem}}
-          {{/each}}
+          <!-- Toggle button -->
+          <button class="btn-style" type="button" data-toggle="collapse" data-target="#collapse-content" aria-expanded="false" aria-controls="collapseExample">
+            Show All Events <i class="fa fa-caret-down"></i>
+          </button>
+
+          <div class="collapse" id="collapse-content">
+            {{#each events}}
+              {{> EventItem}}
+            {{/each}}
+          </div>
+
         </div>
 
       {{else}}

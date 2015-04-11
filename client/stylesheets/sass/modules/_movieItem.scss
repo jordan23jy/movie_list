@@ -1,0 +1,144 @@
+@import "base/all";
+
+$max-details-width: 300px;
+$movie-item-width: 500px;
+$block-spacing: 8px;
+
+.movie-item {
+	margin: 10px auto;
+	padding: 0;
+	background-color: $color-midnight-blue;
+	@include contrasted($color-midnight-blue);
+	max-width: $movie-item-width;
+	.img {
+		float: left;
+		padding: 0;
+		// position: relative;
+		margin: 0 auto;
+		text-align: center;
+
+		button {
+			outline: none;
+			border: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include border-radius(50%);
+
+			background-color: $color-gold;
+			visibility: hidden;
+			z-index: 10;
+		}
+		&:hover,
+		&:active {
+			button {
+				visibility: visible;
+			}
+			@include transition-duration(0.5s);
+			@include transition-timing-function(ease-in);
+			@include transition-property(all);
+			background-color: black;
+			opacity: 0.5;
+
+		}
+	}
+}
+
+// movie title, date and hover delete button
+.movie-details {
+	max-width: $max-details-width;
+	position: relative;
+	margin-left: 15px;
+	padding: 0;
+	.rating {
+		position: relative;
+		padding-top: $block-spacing;
+		padding-bottom: $block-spacing;
+		max-width: $max-details-width;
+		padding-left: 15px;
+		.left {
+			padding-left: 0;
+		}
+		h3 {
+			margin-top: 0;
+			padding-top: 0;
+		}
+		span.number-votes {
+			position: relative;
+			display: block;
+			font-size: 12px;
+			left: 10px;
+		}
+		.stars {
+			height: auto;
+			text-align: center;
+			display: inline-block;
+			margin-top: 5px;
+			width: auto;
+		}
+	}
+	.movie {
+		max-width: $max-details-width;
+		overflow: hidden;
+		padding-left: 15px;
+		.title {
+			max-width: $max-details-width;
+			float: left;
+			padding: $block-spacing 30px $block-spacing 0;
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+		}
+		&:hover,
+		&:active {
+			button.delete {
+				outline: none;
+				margin-left: -20px;
+				visibility: visible;
+			}
+		}
+		button.delete:hover i{
+			@include transform(scale(1.3));
+		}
+		button.delete	{
+			position: absolute;
+			height: 30px;
+			width: 30px;
+			top: 15px;
+			background-color: $color-alizarin;
+			opacity: 0.7;
+			border: none;
+			@include border-radius(1px);
+			@include transition-property(all);
+			@include transition-duration(0.5s);
+			@include transition-timing-function(ease-in);
+			visibility: hidden;
+		}
+		.date {
+			font-size: $font-movie-date;
+		}
+	}
+	.buttons {
+		margin: $block-spacing 0 $block-spacing 0;
+		position: relative;
+
+		button {
+			border: 1px solid white;
+			height: 30px;
+			overflow: hidden;
+			outline: none;
+			background-color: transparent;
+			width: 50%;
+			margin: 0;
+			float: left;
+			&:hover,
+			&:active {
+				background-color: darken($color-emerald, 20%);
+			}
+		}
+		p {
+			position: relative;
+			left: 10px;
+		}
+	}
+}

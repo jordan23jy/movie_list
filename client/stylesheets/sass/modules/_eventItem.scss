@@ -1,0 +1,60 @@
+$max-eventItem-width: 500px;
+$side-toggle-width: 100px;
+
+.event-content {
+	@include contrasted($color-wet-asphalt);
+	max-width: $max-eventItem-width;
+	padding: 8px;
+	position: relative;
+	padding-right: $side-toggle-width + 15px;
+	margin: 8px auto;
+	h3 {
+		margin-top: 0;
+	}
+	.side-toggle {
+		width: $side-toggle-width;
+		display: inline-block;
+		vertical-align: middle;
+		top: 0;
+		right: 0;
+		position: absolute;
+		height: 100%;
+		border-left: 1px solid white;
+
+		button {
+			border: none;
+			background-color: transparent;
+			outline: none;
+			height: calc(100% / 4);
+			width: 100%;
+			text-align: left;
+			padding-left: 15px;
+
+		}
+		button.details {
+			&:hover {
+				background-color: $color-belize-hole;
+			}
+		}
+		button.edit {
+			&:hover {
+				background-color: $color-wisteria;
+			}
+		}
+		button.delete {
+			&:hover {
+				background-color: $color-pomegrante;
+			}
+		}
+		button.follow {
+			&:hover {
+				background-color: $color-nephritis;
+			}
+		}
+		button.unfollow {
+			&:hover {
+				background-color: $color-orange;
+			}
+		}
+	}
+}

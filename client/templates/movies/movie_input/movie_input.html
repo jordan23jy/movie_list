@@ -1,26 +1,32 @@
 <template name="MovieInput">
   <form class="main form page movieadd" name="movieadd">
-		<div class="form-group">
-			<label for="movieTitle">Movie Title</label>
-			<input 	name="movieTitle" class="form-control"
-							type="text" placeholder="Movie title" autocomplete="off"/>
-
-			{{#if autocomplete}}
-				<div class="autocomplete" >
-					{{#if autocompleteLoading}}
-						<p class="spin">Loading</p>
-					{{else}}
-						{{#each autocomplete}}
-							{{#if Error}}
-								<p>{{Error}}</p>
-							{{else}}
-								<input type="radio" name="autocomplete" id="{{id}}" value="{{id}}">
-								<label for="{{id}}">{{title}} ({{release_date}})</label>
-							{{/if}}
-						{{/each}}
-					{{/if}}
+		<div class="form-group box">
+			<!-- <label for="movieTitle">Movie Title</label> -->
+			<div class="searchbox">
+				<div class="search">
+					<input 	id="query" name="query" class="form-control"
+								type="text" placeholder="Search..." autocomplete="off" value="" />
+					<button class="icon"><i class="fa fa-search"></i></button>
 				</div>
-			{{/if}}
+				{{#if autocomplete}}
+					<div class="autocomplete" >
+						{{#if autocompleteLoading}}
+							<div class="loading">
+								{{> spinner}}
+							</div>
+						{{else}}
+							{{#each autocomplete}}
+								{{#if Error}}
+									<p>{{Error}}</p>
+								{{else}}
+									<input type="radio" name="autocomplete" id="{{id}}" value="{{id}}"/>
+									<label for="{{id}}">{{title}} <span>[{{release_date}}]</span></label>
+								{{/if}}
+							{{/each}}
+						{{/if}}
+					</div>
+				{{/if}}
+			</div>
 		</div>
 
 	</form>

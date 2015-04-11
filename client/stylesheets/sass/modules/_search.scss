@@ -1,0 +1,108 @@
+.box {
+	margin: 20px 20px;
+	height: 50px;
+	max-width: 800px;
+
+}
+.searchbox {
+	vertical-align: middle;
+	white-space: nowrap;
+	position: relative;
+	height: auto;
+	border: rgba(0, 0, 0, 0.1) solid 1px;
+	@include box-shadow(rgba(0, 0, 0, 0.3) 2px 2px 5px);
+	@include border-radius(5px);
+	font-size: 18px;
+	background-color: white;
+	z-index: 10;
+	overflow: hidden;
+	// max-height: 410px;
+	color: $font-color-dark;
+
+	.search {
+		overflow: hidden;
+		input#query {
+			max-width: 800px;
+			height: 50px;
+			// background: #2b303b;
+			border: none;
+			border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+			font-size: 10pt;
+			float: left;
+			padding-left: 15px;
+
+
+			@include input-placeholder {
+				color: #65737e;
+			}
+		}
+		button.icon {
+			@include border-top-right-radius(5px);
+			@include border-bottom-right-radius(5px);
+			@include transition-property(all);
+			@include transition-duration(0.5s);
+			@include transition-timing-function(ease-in);
+			border: none;
+			background: #bdc3c7;
+			height: 50px;
+			width: 50px;
+			color: #4f5b66;
+			opacity: 0;
+			font-size: 10pt;
+		}
+	}
+
+	&:hover,
+	&:active {
+		button.icon {
+			outline: none;
+			opacity: 1;
+			margin-left: -50px;
+		}
+	}
+
+	&:hover {
+		button.icon:hover {
+			background: white;
+		}
+	}
+
+	.autocomplete {
+		max-width: 800px;
+		position: relative;
+		span {
+			position: relative;
+			font-size: 0.7em;
+			left: 10px;
+		}
+		label {
+			margin: 5px auto;
+		}
+
+		input[type=radio] {
+			display: none;
+		}
+
+		input[type=radio] + label {
+			display: block;
+			padding: 0 20px;
+			font-family: 'Helvetica', 'sans-serif, Verdana';
+			font-weight: 500;
+		}
+
+		:checked + label,
+		input[type=radio] + label:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+		.loading {
+			position: relative;
+			display: block;
+			height: 100px;
+			z-index: 10;
+			background-color: white;
+		}
+	}
+
+}
+
+

@@ -1,0 +1,30 @@
+// button style carried from _common.scss
+$max-width: 500px;
+
+.form-toggle {
+  // max-width: $max-width;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  button {
+    padding: 15px;
+    width: 100%;
+    outline: none;
+    &:hover,
+    &:active {
+      background-color: $color-nephritis;
+      // @include transform(scale(1.5));
+    }
+    i {
+      margin-left: 10px;
+    }
+  }
+}
+
+.event-create form {
+    margin: 15px 25px;
+    color: darken($color-asbestos, 20%);
+    label {
+      margin-bottom: 5px;
+    }
+
+}
