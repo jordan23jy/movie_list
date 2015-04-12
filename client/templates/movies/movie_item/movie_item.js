@@ -3,17 +3,22 @@
 /*****************************************************************************/
 Template.MovieItem.events({
 	'click [name=poster]': function () {
-
 		// call moviedb api
 		mdb.getMovieInfo(this.id);
 		Session.set('selectedMovieId',  {id: this.id})
 	},
 
+	// 'click button.info': function () {
+	// 	// call moviedb api
+	// 	mdb.getMovieInfo(this.id);
+	// 	Session.set('selectedMovieId',  {id: this.id})
+	// },
+
 	'click .delete': function () {
 		Movies.remove(this._id)
 	},
 
-	'click .vote': function (e, tmpl) {
+	'click .upvote': function (e, tmpl) {
 		console.log("event_id: " + this.event_id + "; movieId: " + this._id);
 		Meteor.call('upvote', this.event_id, this._id);
 	}
@@ -49,6 +54,28 @@ Template.MovieItem.helpers({
 
 	vote_average: function () {
 		return this.vote_average.toFixed(1);
+	},
+
+	isNotFollowing: function () {
+		var userId = Meteor.userId()
+		if (!! this.followers_id)
+			return this.followers_id.indexOf(userId) > -1 ? false : true;
+	},
+
+	hasEvent: function () {
+		if (!! this.event_id)
+			return true;
+	},
+
+	releaseYear: function () {
+		var date = this.release_date;
+		return date.split("-")[0];
+	},
+
+	hasVoted: function () {
+		var userId = Meteor.userId()
+		if (!! this.voters_id)
+			return this.voters_id.indexOf(userId) > -1 ? 'hasVoted' : '';
 	}
 });
 

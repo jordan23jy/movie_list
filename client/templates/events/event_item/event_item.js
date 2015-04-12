@@ -2,9 +2,10 @@
 /* EventItem: Event Handlers */
 /*****************************************************************************/
 Template.EventItem.events({
-	'click .event-content': function () {
-
+	'click .event-content': function (e, tmpl) {
 		Session.set('selectedEventId', this._id);
+		$('.active-event').removeClass('active-event');
+		$('#'+this._id).addClass('active-event');
 	},
 
 	'click [name=eventUrl]': function () {
@@ -21,7 +22,8 @@ Template.EventItem.events({
 
 	'click [name=edit]': function () {
 		Session.set('isEditing', {status: true});
-		Router.go('event.id')
+		// console.log(this._id);
+		Router.go('event.edit', {_id: this._id});
 	},
 
 	'click [name=saveEdit]': function () {
@@ -85,3 +87,4 @@ Template.EventItem.rendered = function () {
 
 Template.EventItem.destroyed = function () {
 };
+

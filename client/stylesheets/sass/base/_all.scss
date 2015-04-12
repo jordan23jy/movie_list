@@ -31,9 +31,16 @@ $color-concrete: #95a5a6;
 $color-asbestos: #7f8c8d;
 
 $color-gold: #FFD700;
+$color-dark-grey: rgb(64, 68, 83);
+
+// hover
+$hover-green: darken($color-emerald, 20%);
 
 // body
-$body-color: $color-midnight-blue;
+$body-color: $color-dark-grey;
+
+// item color
+$item-color: $color-dark-grey;
 
 // font
 $font-movie-date: 12px;

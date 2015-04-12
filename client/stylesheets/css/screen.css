@@ -21,109 +21,13 @@ button {
       margin-left: 10px;
       margin-right: 10px; }
 
-.box {
-  margin: 20px 20px;
-  height: 50px;
-  max-width: 800px; }
-
-.searchbox {
-  vertical-align: middle;
-  white-space: nowrap;
-  position: relative;
-  height: auto;
-  border: rgba(0, 0, 0, 0.1) solid 1px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px;
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 18px;
-  background-color: white;
-  z-index: 10;
-  overflow: hidden;
-  color: #4e5758; }
-  .searchbox .search {
-    overflow: hidden; }
-    .searchbox .search input#query {
-      max-width: 800px;
-      height: 50px;
-      border: none;
-      border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-      font-size: 10pt;
-      float: left;
-      padding-left: 15px; }
-      .searchbox .search input#query:-moz-placeholder {
-        color: #65737e; }
-      .searchbox .search input#query::-moz-placeholder {
-        color: #65737e; }
-      .searchbox .search input#query:-ms-input-placeholder {
-        color: #65737e; }
-      .searchbox .search input#query::-webkit-input-placeholder {
-        color: #65737e; }
-    .searchbox .search button.icon {
-      -moz-border-radius-topright: 5px;
-      -webkit-border-top-right-radius: 5px;
-      border-top-right-radius: 5px;
-      -moz-border-radius-bottomright: 5px;
-      -webkit-border-bottom-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      -moz-transition-property: all;
-      -o-transition-property: all;
-      -webkit-transition-property: all;
-      transition-property: all;
-      -moz-transition-duration: 0.5s;
-      -o-transition-duration: 0.5s;
-      -webkit-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-      -moz-transition-timing-function: ease-in;
-      -o-transition-timing-function: ease-in;
-      -webkit-transition-timing-function: ease-in;
-      transition-timing-function: ease-in;
-      border: none;
-      background: #bdc3c7;
-      height: 50px;
-      width: 50px;
-      color: #4f5b66;
-      opacity: 0;
-      font-size: 10pt; }
-  .searchbox:hover button.icon, .searchbox:active button.icon {
-    outline: none;
-    opacity: 1;
-    margin-left: -50px; }
-  .searchbox:hover button.icon:hover {
-    background: white; }
-  .searchbox .autocomplete {
-    max-width: 800px;
-    position: relative; }
-    .searchbox .autocomplete span {
-      position: relative;
-      font-size: 0.7em;
-      left: 10px; }
-    .searchbox .autocomplete label {
-      margin: 5px auto; }
-    .searchbox .autocomplete input[type=radio] {
-      display: none; }
-    .searchbox .autocomplete input[type=radio] + label {
-      display: block;
-      padding: 0 20px;
-      font-family: 'Helvetica', 'sans-serif, Verdana';
-      font-weight: 500; }
-    .searchbox .autocomplete :checked + label,
-    .searchbox .autocomplete input[type=radio] + label:hover {
-      background-color: rgba(0, 0, 0, 0.1); }
-    .searchbox .autocomplete .loading {
-      position: relative;
-      display: block;
-      height: 100px;
-      z-index: 10;
-      background-color: white; }
+.container-fluid {
+  padding: 0; }
 
 .movie-item {
   margin: 10px auto;
   padding: 0;
-  background-color: #2c3e50;
-  background-color: #2c3e50;
+  background-color: #404453;
   color: #fff;
   max-width: 500px; }
   .movie-item .img {
@@ -248,6 +152,12 @@ button {
       float: left; }
       .movie-details .buttons button:hover, .movie-details .buttons button:active {
         background-color: #1b7943; }
+    .movie-details .buttons .hasVoted {
+      color: #1b7943; }
+      .movie-details .buttons .hasVoted button {
+        border-color: #1b7943; }
+        .movie-details .buttons .hasVoted button:hover, .movie-details .buttons .hasVoted button:active {
+          background-color: #e6e6e6; }
     .movie-details .buttons p {
       position: relative;
       left: 10px; }
@@ -283,13 +193,21 @@ fieldset, label {
     color: #fff3b3; }
 
 .event-content {
-  background-color: #34495e;
+  background-color: #404453;
   color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   max-width: 500px;
-  padding: 8px;
+  padding: 15px;
   position: relative;
   padding-right: 115px;
-  margin: 8px auto; }
+  margin: 10px 0 10px 0;
+  border: 1px solid #e6e6e6; }
+  .event-content:hover, .event-content:active, .event-content.active-event {
+    -moz-box-shadow: gray 2px 2px 10px;
+    -webkit-box-shadow: gray 2px 2px 10px;
+    box-shadow: gray 2px 2px 10px; }
   .event-content h3 {
     margin-top: 0; }
   .event-content .side-toggle {
@@ -300,7 +218,7 @@ fieldset, label {
     right: 0;
     position: absolute;
     height: 100%;
-    border-left: 1px solid white; }
+    border-left: 1px solid #e6e6e6; }
     .event-content .side-toggle button {
       border: none;
       background-color: transparent;
@@ -320,6 +238,11 @@ fieldset, label {
     .event-content .side-toggle button.unfollow:hover {
       background-color: #f39c12; }
 
+.event-item button.btn-style {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
 .form-toggle {
   margin-top: 8px;
   margin-bottom: 8px; }
@@ -328,36 +251,47 @@ fieldset, label {
     width: 100%;
     outline: none; }
     .form-toggle button:hover, .form-toggle button:active {
-      background-color: #27ae60; }
+      background-color: #1b7943; }
     .form-toggle button i {
       margin-left: 10px; }
 
 .event-create form {
   margin: 15px 25px;
-  color: #4e5758; }
+  color: #4e5758;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
   .event-create form label {
     margin-bottom: 5px; }
 
-.modal-content {
+.event-item button:hover, .event-item button:active {
+  background-color: #1b7943; }
+
+.event-input button {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+#moviePoster .modal-content {
   max-width: 500px;
   background-color: black;
   color: #fff;
   overflow: hidden;
   font-size: 0.9em; }
-  .modal-content p {
+  #moviePoster .modal-content p {
     font-size: 1.1em; }
-  .modal-content button.close {
+  #moviePoster .modal-content button.close {
     color: white; }
-  .modal-content .list-inline {
+  #moviePoster .modal-content .list-inline {
     margin-top: 25px; }
-    .modal-content .list-inline li {
+    #moviePoster .modal-content .list-inline li {
       position: relative;
       display: block; }
-      .modal-content .list-inline li span {
+      #moviePoster .modal-content .list-inline li span {
         float: right; }
-  .modal-content .line-break {
+  #moviePoster .modal-content .line-break {
     margin: 10px auto; }
-  .modal-content h3 {
+  #moviePoster .modal-content h3 {
     margin: 25px 25px; }
 
 .img-backdrop {
@@ -568,9 +502,123 @@ fieldset, label {
 .star-rating-rtl .caption {
   padding-right: 5px; }
 
+@media screen and (min-width: 768px) {
+  #trailer .modal-dialog {
+    width: 854px; } }
+#trailer .modal-content {
+  background-color: black; }
+
+.box {
+  margin: 20px 0 20px 0;
+  height: 50px;
+  max-width: 800px; }
+
+.searchbox {
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  height: auto;
+  border: rgba(0, 0, 0, 0.1) solid 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  overflow: hidden;
+  color: #4e5758; }
+  .searchbox .search {
+    overflow: hidden; }
+    .searchbox .search input#query {
+      max-width: 800px;
+      height: 50px;
+      border: none;
+      border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+      font-size: 10pt;
+      float: left;
+      padding-left: 15px; }
+      .searchbox .search input#query:-moz-placeholder {
+        color: #65737e; }
+      .searchbox .search input#query::-moz-placeholder {
+        color: #65737e; }
+      .searchbox .search input#query:-ms-input-placeholder {
+        color: #65737e; }
+      .searchbox .search input#query::-webkit-input-placeholder {
+        color: #65737e; }
+    .searchbox .search button.icon {
+      -moz-border-radius-topright: 5px;
+      -webkit-border-top-right-radius: 5px;
+      border-top-right-radius: 5px;
+      -moz-border-radius-bottomright: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      -moz-transition-property: all;
+      -o-transition-property: all;
+      -webkit-transition-property: all;
+      transition-property: all;
+      -moz-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      -moz-transition-timing-function: ease-in;
+      -o-transition-timing-function: ease-in;
+      -webkit-transition-timing-function: ease-in;
+      transition-timing-function: ease-in;
+      border: none;
+      background: #bdc3c7;
+      height: 50px;
+      width: 50px;
+      color: #4f5b66;
+      opacity: 0;
+      font-size: 10pt; }
+  .searchbox:hover button.icon, .searchbox:active button.icon {
+    outline: none;
+    opacity: 1;
+    margin-left: -50px; }
+  .searchbox:hover button.icon:hover {
+    background: white; }
+  .searchbox .autocomplete {
+    max-width: 800px;
+    position: relative; }
+    .searchbox .autocomplete span {
+      position: relative;
+      font-size: 0.7em;
+      left: 10px; }
+    .searchbox .autocomplete label {
+      margin: 5px auto; }
+    .searchbox .autocomplete input[type=radio] {
+      display: none; }
+    .searchbox .autocomplete input[type=radio] + label {
+      display: block;
+      padding: 0 20px;
+      font-family: 'Helvetica', 'sans-serif, Verdana';
+      font-weight: 500; }
+    .searchbox .autocomplete :checked + label,
+    .searchbox .autocomplete input[type=radio] + label:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+    .searchbox .autocomplete .loading {
+      position: relative;
+      display: block;
+      height: 100px;
+      z-index: 10;
+      background-color: white; }
+
+.seperator {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background-color: #164666;
+  padding: 20px 0 20px; }
+
+.container-fluid.disqus-container {
+  background-color: #ecf0f1;
+  color: #000; }
+
 body {
-  margin: 20px;
-  background-color: #2c3e50;
+  background-color: #404453;
   color: #fff;
   font-family: "Verdana", "sans-serif", "Arial"; }
   body h1,
@@ -580,3 +628,8 @@ body {
   body h5,
   body h6 {
     font-family: "Georgia", "Serif", "Palinto"; }
+  body .container-fluid.disqus-container {
+    background-color: #ecf0f1;
+    color: #000; }
+  body .jumbotron {
+    color: #4e5758; }

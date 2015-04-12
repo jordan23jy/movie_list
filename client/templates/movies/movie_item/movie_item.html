@@ -1,6 +1,7 @@
 <template name="MovieItem">
 		<div class="col-xs-12 movie-item">
 			<!-- Image -->
+			<!-- Toggle MovieItemInfo in Events layout -->
 			<div class="col-xs-4 img" data-toggle="modal" data-target="#moviePoster" name="poster">
 				<img class="img-responsive" src="{{posterUrl}}" alt="{{title}}">
 				<button><i class="fa fa-info"></i></button>
@@ -38,9 +39,24 @@
 
 				<!-- Buttons -->
 				<div class="row buttons">
-					<p>Votes <span>{{votes}}</span></p>
-						<button class="upvote"><i class="fa fa-chevron-up"></i> Upvote</button>
-						<button class="info"><i class="fa fa-angle-double-right"></i> More Info</button>
+					<p><span>{{votes}}</span> Votes</p>
+
+						<div data-toggle="modal" data-target="#trailer" name="poster">
+							<button class="info"><i class="fa fa-angle-double-right"></i> Trailer</button>
+						</div>
+						<!-- Don't show upvote if movie has no event -->
+						{{#if hasEvent}}
+							<div class="{{hasVoted}}">
+								<button class="upvote"><i class="fa fa-chevron-up"></i> Upvote</button>
+							</div>
+						{{else}}
+							<!-- Toggle MovieItemInfo in Events layout -->
+							<div data-toggle="modal" data-target="#moviePoster" name="poster">
+								<button class="info"><i class="fa fa-angle-double-right"></i> More Info</button>
+							</div>
+						{{/if}}
+
+
 			<!-- End of details -->
 			</div>
 		<!-- End of Movie Item -->

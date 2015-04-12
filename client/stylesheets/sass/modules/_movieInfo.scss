@@ -2,7 +2,7 @@ $modal-max-width: 500px;
 $color: white;
 
 
-.modal-content {
+#moviePoster .modal-content {
 	max-width: $modal-max-width;
 	@include contrasted(black);
 	overflow: hidden;

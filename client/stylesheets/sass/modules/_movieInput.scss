@@ -1,5 +1,6 @@
+
 .box {
-	margin: 20px 20px;
+	margin: 20px 0 20px 0;
 	height: 50px;
 	max-width: 800px;
 
@@ -13,7 +14,7 @@
 	@include box-shadow(rgba(0, 0, 0, 0.3) 2px 2px 5px);
 	@include border-radius(5px);
 	font-size: 18px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.9);
 	z-index: 10;
 	overflow: hidden;
 	// max-height: 410px;
@@ -70,6 +71,7 @@
 	.autocomplete {
 		max-width: 800px;
 		position: relative;
+
 		span {
 			position: relative;
 			font-size: 0.7em;

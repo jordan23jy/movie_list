@@ -1,75 +1,71 @@
 <template name="EventLayout">
-
-	<!-- First column -->
-	<div class="col-md-6 movie-item">
-		<!-- if is editing -->
-		{{#if isEditing}}
-			{{> EventCreate}}
-		<!-- end if isEditing -->
-		{{/if}}
-
-		<!-- if not logged in -->
-		{{#if isNotLoggedIn}}
-			<!-- prompt to log in to follow event -->
-			<div class="prompt jumbotron text-center">
-				<h3>Log in and Accept Invitation</h3>
-			</div>
-			<!-- render event details -->
-			<div class="row event-item">
+<div class="container">
+	<!-- First row containing event info and search bar -->
+	<div class="row">
+		<!-- Event Item Details -->
+		<div class="col-md-6">
+			{{#if isNotLoggedIn}}
+				<!-- prompt to log in to follow event -->
+				<div class="prompt jumbotron text-center">
+					<h3>Log in and Accept Invitation</h3>
+				</div>
+				<!-- render event details for preview -->
 				{{> EventItem}}
-			</div>
-			<!-- render disqus -->
-			<div class="col-md-12">
-				{{> Disqus}}
-			</div>
-		<!-- else if logged in -->
-		{{else}}
-			<!-- render event details -->
-			<div class="row event-item">
+				<!-- else if logged in -->
+			{{else}}
+				<!-- render event details -->
 				{{> EventItem}}
-			</div>
-
-			<!-- render disqus -->
-			<div class="col-md-12">
-				{{> Disqus}}
-			</div>
-		<!-- End if isNotLoggedIn -->
-		{{/if}}
-	</div>
-	<!-- End first column -->
+			{{/if}}
+		</div>
 
 
-	<!-- Second Column -->
-	<div class="col-md-6">
-		{{#if isNotLoggedIn}}
-		<!-- if not following event -->
-			<!-- prompt to follow event -->
-			<div class="prompt jumbotron text-center">
-			  <h3>Follow Event</h3>
-			</div>
-			<!-- render movie items -->
-			<div class="row movie-item">
-			  {{#each movies}}
-			    {{> MovieItem}}
-			  {{/each}}
-			</div>
-		<!-- else if logged in -->
-		{{else}}
-			<!-- render movie insert -->
-			<div class="row movie-input">
-			  {{> MovieInput}}
-			</div>
-			<!-- render movie items with vote -->
-			<div class="row movie-item">
-			  {{#each movies}}
-			    {{> MovieItem}}
-			  {{/each}}
-			</div>
-		<!-- End if isNotLoggedIn -->
-		{{/if}}
+		<!-- Search Movies -->
+		<div class="col-md-6">
+			{{#if isNotLoggedIn}}
+					{{#if isNotFollowing}}
+					<div class="prompt jumbotron text-center">
+					  <h3>Log in and subscribe to event to input movie</h3>
+					</div>
+				{{/if}}
+			{{else}}
+				<!-- Render movie input if is following event and is logged in -->
+				{{> MovieInput}}
+			{{/if}}
+		</div>
 	</div>
 
-	<!-- Movie Info Modal -->
-	<!-- Will render when movie item is clicked -->
-	{{> MovieItemInfo}}
+
+
+		<!-- Movies -->
+		<div class="row" style="margin:25px 0 25px 0;">
+			{{#each movie}}
+				<div class="col-md-6">
+			  	{{> MovieItem}}
+			  </div>
+			{{/each}}
+		</div>
+
+
+		<!-- Movie Info Modal -->
+		<!-- Will render when movie item is clicked -->
+		{{> MovieItemInfo}}
+		<!-- Trailer Modal -->
+		<!-- Will render when trailer button is clicked -->
+		{{> Trailer}}
+
+		<!-- Separator -->
+</div>
+<div class="container-fluid disqus-container">
+	<div class="seperator">
+	</div>
+
+	<div class="container" style="margin-top:40px; margin-bottom:40px;">
+		<!-- Render chat feed if user is logged in -->
+		<!-- render disqus -->
+		<div class="disqus row">
+			{{> Disqus}}
+		</div>
+	</div>
+</div>
+
 </template>

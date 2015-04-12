@@ -1,9 +1,14 @@
 <template name="EventsLayout">
-    <!-- First Column -->
+  <div class="container">
+     <!-- First Column -->
     <!-- Show only when loged in -->
     <div class="col-md-6 event-container">
       {{#if currentUser}}
         <div class="col-md-12 event-input">
+          <!-- Render button which toggles EventCreate modal -->
+          <div class="form-toggle">
+              <button type="button" data-toggle="modal" data-target="#event-create">Create an Event <i class="fa fa-plus"></i></button>
+          </div>
           {{> EventCreate}}
         </div>
 
@@ -76,4 +81,8 @@
   <!-- Movie Info Modal -->
   <!-- Will render when movie item is clicked -->
   {{> MovieItemInfo}}
+  <!-- Trailer Modal -->
+  <!-- Will render when trailer button is clicked -->
+  {{> Trailer}}
+  </div>
 </template>

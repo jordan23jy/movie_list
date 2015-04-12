@@ -1,18 +1,20 @@
 <template name="EventItem">
 	<div class="event-content" id="{{_id}}">
-		<h3>{{event_name}}</h3>
-		<p class="location" style="{{hiddenClass 'location'}}">Location: {{location}}</p>
-		<p class="time" style="{{hiddenClass 'time_start'}}">Time: {{time_start}}</p>
-		<p class="followers">Followers: {{followers}}</p>
-		<span class="share-link"><i class="fa fa-link"></i> Share Link: </span><a href="http://localhost.com{{pathFor 'event.id'}}">http://localhost.com{{pathFor 'event.id'}}</a>
+		<div class="main-content">
+			<h3>{{event_name}}</h3>
+			<p class="location" style="{{hiddenClass 'location'}}">Location: {{location}}</p>
+			<p class="time" style="{{hiddenClass 'time_start'}}">Time: {{time_start}}</p>
+			<p class="followers">Followers: {{followers}}</p>
+			<span class="share-link"><i class="fa fa-link"></i> Share Link: </span><a href="http://localhost:3000{{pathFor 'event.id'}}">http://localhost:3000{{pathFor 'event.id'}}</a>
+		</div>
 		<div class="side-toggle">
 			<!-- if is owner -->
 			{{#if isOwner}}
-				<button class="edit"><i class="fa fa-cog"></i> Edit</button>
-				<button class="delete"><i class="fa fa-trash-o"></i> Delete</button>
+				<button class="edit" name="edit"><i class="fa fa-cog"></i> Edit</button>
+				<button class="delete" name="delete"><i class="fa fa-trash-o"></i> Delete</button>
 			<!-- else if not owner -->
 			{{else}}
-				<button class="details"><i class="fa fa-bars"></i> Details</button>
+				<button class="details" name="details"><i class="fa fa-bars"></i> Details</button>
 				<!-- if is not following event -->
 				{{#if isNotFollowing}}
 					<!-- render follow button -->
@@ -28,6 +30,3 @@
 		</div>
 	</div>
 </template>
-
-
-

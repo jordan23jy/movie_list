@@ -1,15 +1,28 @@
 $max-eventItem-width: 500px;
 $side-toggle-width: 100px;
+$background-color: $item-color;
 
 .event-content {
-	@include contrasted($color-wet-asphalt);
+	@include contrasted($background-color);
+	@include border-radius(5px);
 	max-width: $max-eventItem-width;
-	padding: 8px;
+	padding: 15px;
 	position: relative;
 	padding-right: $side-toggle-width + 15px;
-	margin: 8px auto;
+	margin: 10px 0 10px 0;
+	border: 1px solid darken(white, 10%);
+	&:hover,
+	&:active,
+	&.active-event {
+		// border: 1px solid white;
+		@include box-shadow(lighten(black,50%) 2px 2px 10px);
+	}
 	h3 {
 		margin-top: 0;
+	}
+	.main-content {
+		// position: relative;
+		// width: $max-eventItem-width - $side-toggle-width;
 	}
 	.side-toggle {
 		width: $side-toggle-width;
@@ -19,7 +32,7 @@ $side-toggle-width: 100px;
 		right: 0;
 		position: absolute;
 		height: 100%;
-		border-left: 1px solid white;
+		border-left: 1px solid darken(white, 10%);
 
 		button {
 			border: none;
@@ -56,5 +69,11 @@ $side-toggle-width: 100px;
 				background-color: $color-orange;
 			}
 		}
+	}
+}
+
+.event-item {
+	button.btn-style {
+		@include border-radius(5px);
 	}
 }

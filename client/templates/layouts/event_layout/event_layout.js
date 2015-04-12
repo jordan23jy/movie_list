@@ -17,7 +17,7 @@ Template.EventLayout.helpers({
 		return Events.find();
 	},
 
-	movies: function () {
+	movie: function () {
 		// store event id when event is selected
 		var eventId = Session.get('selectedEventId');
 
@@ -57,6 +57,7 @@ Template.EventLayout.created = function () {
 
 Template.EventLayout.rendered = function () {
 	Sessions.set('selectedEventId', Router.current().params._id)
+
 };
 
 Template.EventLayout.destroyed = function () {

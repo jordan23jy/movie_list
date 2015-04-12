@@ -7,8 +7,8 @@ $block-spacing: 8px;
 .movie-item {
 	margin: 10px auto;
 	padding: 0;
-	background-color: $color-midnight-blue;
-	@include contrasted($color-midnight-blue);
+	// background-color: $item-color;
+	@include contrasted($item-color);
 	max-width: $movie-item-width;
 	.img {
 		float: left;
@@ -133,7 +133,17 @@ $block-spacing: 8px;
 			float: left;
 			&:hover,
 			&:active {
-				background-color: darken($color-emerald, 20%);
+				background-color: $hover-green;
+			}
+		}
+		.hasVoted {
+			color: $hover-green;
+			button {
+				border-color: $hover-green;
+				&:hover,
+				&:active{
+					background-color: darken(white, 10%);
+				}
 			}
 		}
 		p {

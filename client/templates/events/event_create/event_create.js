@@ -29,7 +29,10 @@ Template.EventCreate.events({
 				console.log(err.reason);
 			} else {
 				Session.set('selectedEventId', res);
+				// clear form
 				$('form input').val('');
+				// closes modal window
+				$('.event-create').modal('toggle');
 			}
 		})
 	},
@@ -56,15 +59,25 @@ Template.EventCreate.events({
 			if (err) {
 				console.log(err.reason);
 			} else {
-				$('form input').val();
 				Session.set('isEditing', {status: false})
+				// clear form
+				$('form input').val();
+				// closes modal window
+				$('.event-edit').modal('toggle');
 			}
 		})
 	},
 
 	'click button[name=cancel]': function () {
+		Router.go('event.id', {_id: this._id});
 		return Session.set('isEditing', false);
-	}
+	},
+
+	'click [name=save]': function () {
+		Session.set('isEditing', {status: true});
+		// console.log(this._id);
+		Router.go('event.id', {_id: this._id});
+	},
 
 });
 
@@ -100,12 +113,10 @@ Template.EventCreate.destroyed = function () {
 
 var getFormData = function(selector) {
 	var data = {};
-
 	$(selector).serializeArray().forEach(function(obj) {
 		if (obj.value) {
 			data[obj.name] = obj.value;
 		}
 	});
-
 	return data;
 }

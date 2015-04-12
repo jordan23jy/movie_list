@@ -53,6 +53,8 @@ Template.EventsLayout.created = function () {
 
 Template.EventsLayout.rendered = function () {
 	Session.set('isEditing', false);
+	// initiate toggle event items
+	$('.collapse').collapse();
 };
 
 Template.EventsLayout.destroyed = function () {

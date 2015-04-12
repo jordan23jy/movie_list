@@ -11,7 +11,7 @@ $max-width: 500px;
     outline: none;
     &:hover,
     &:active {
-      background-color: $color-nephritis;
+      background-color: $hover-green;
       // @include transform(scale(1.5));
     }
     i {
@@ -26,5 +26,21 @@ $max-width: 500px;
     label {
       margin-bottom: 5px;
     }
+    @include border-radius(5px);
+}
 
+// events_layout.html
+.event-item {
+  button {
+    &:hover,
+    &:active {
+      background-color: $hover-green;
+    }
+  }
+}
+
+.event-input {
+  button {
+    @include border-radius(5px);
+  }
 }
