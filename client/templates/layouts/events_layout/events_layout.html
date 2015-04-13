@@ -58,9 +58,11 @@
             <div class="row movie-item">
               <!-- if is current event movie -->
               {{#if isEventMovie}}
-                {{#each movies}}
-                  {{> MovieItem}}
-                {{/each}}
+                <div class="wrapper">
+                  {{#each movies}}
+                    {{> MovieItem}}
+                  {{/each}}
+                </div>
               <!-- else if no movie in event -->
               {{else}}
                 <!-- If no movie added -->

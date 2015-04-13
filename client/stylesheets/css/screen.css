@@ -29,7 +29,8 @@ button {
   padding: 0;
   background-color: #404453;
   color: #fff;
-  max-width: 500px; }
+  max-width: 500px;
+  position: relative; }
   .movie-item .img {
     float: left;
     padding: 0;
@@ -153,14 +154,30 @@ button {
       .movie-details .buttons button:hover, .movie-details .buttons button:active {
         background-color: #1b7943; }
     .movie-details .buttons .hasVoted {
-      color: #1b7943; }
+      color: #7f8c8d; }
       .movie-details .buttons .hasVoted button {
-        border-color: #1b7943; }
+        border-color: #7f8c8d; }
         .movie-details .buttons .hasVoted button:hover, .movie-details .buttons .hasVoted button:active {
-          background-color: #e6e6e6; }
+          background-color: #cccccc; }
     .movie-details .buttons p {
       position: relative;
       left: 10px; }
+
+.col-md-6.movie-item-wrap {
+  position: relative; }
+  .col-md-6.movie-item-wrap.animate {
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in; }
 
 fieldset, label {
   margin: 0;

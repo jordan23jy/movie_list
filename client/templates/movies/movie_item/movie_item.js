@@ -21,6 +21,11 @@ Template.MovieItem.events({
 	'click .upvote': function (e, tmpl) {
 		console.log("event_id: " + this.event_id + "; movieId: " + this._id);
 		Meteor.call('upvote', this.event_id, this._id);
+	},
+
+	'click .downvote': function (e, tmpl) {
+		console.log("event_id: " + this.event_id + "; movieId: " + this._id);
+		Meteor.call('downvote', this.event_id, this._id);
 	}
 });
 
@@ -72,11 +77,18 @@ Template.MovieItem.helpers({
 		return date.split("-")[0];
 	},
 
-	hasVoted: function () {
+	hasVotedClass: function () {
 		var userId = Meteor.userId()
 		if (!! this.voters_id)
 			return this.voters_id.indexOf(userId) > -1 ? 'hasVoted' : '';
+	},
+
+	hasVoted: function () {
+		var userId = Meteor.userId()
+		if (!! this.voters_id)
+			return this.voters_id.indexOf(userId) > -1 ? true : false;
 	}
+
 });
 
 /*****************************************************************************/

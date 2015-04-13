@@ -55,6 +55,13 @@ Template.EventsLayout.rendered = function () {
 	Session.set('isEditing', false);
 	// initiate toggle event items
 	$('.collapse').collapse();
+
+	// moveElement called whenever element position changes
+	this.find('.wrapper')._uihooks = {
+		moveElement: function (node, next) {
+
+		}
+	}
 };
 
 Template.EventsLayout.destroyed = function () {

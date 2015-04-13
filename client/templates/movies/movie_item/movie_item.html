@@ -46,9 +46,16 @@
 						</div>
 						<!-- Don't show upvote if movie has no event -->
 						{{#if hasEvent}}
-							<div class="{{hasVoted}}">
-								<button class="upvote"><i class="fa fa-chevron-up"></i> Upvote</button>
-							</div>
+							{{#if hasVoted}}
+								<div class="{{hasVotedClass}}">
+									<button class="downvote"><i class="fa fa-chevron-down"></i> Downvote</button>
+								</div>
+							{{else}}
+								<div>
+									<button class="upvote"><i class="fa fa-chevron-up"></i> Upvote</button>
+								</div>
+							{{/if}}
+
 						{{else}}
 							<!-- Toggle MovieItemInfo in Events layout -->
 							<div data-toggle="modal" data-target="#moviePoster" name="poster">

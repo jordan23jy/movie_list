@@ -56,8 +56,7 @@ Template.EventLayout.created = function () {
 };
 
 Template.EventLayout.rendered = function () {
-	Sessions.set('selectedEventId', Router.current().params._id)
-
+	Session.set('selectedEventId', Router.current().params._id)
 };
 
 Template.EventLayout.destroyed = function () {

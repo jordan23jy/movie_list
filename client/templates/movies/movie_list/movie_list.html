@@ -1,0 +1,13 @@
+<!-- NOT IN USE -->
+<template name="MovieList">
+  <!-- Movies -->
+  <div class="row" style="margin:25px 0 25px 0;">
+  	<div class="wrapper">
+  		{{#each movie}}
+          <div class="col-md-6 movie-item-wrap">
+            {{> MovieItem}}
+          </div>
+  		{{/each}}
+  	</div>
+  </div>
+</template>

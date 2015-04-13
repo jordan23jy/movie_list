@@ -7,9 +7,10 @@ $block-spacing: 8px;
 .movie-item {
 	margin: 10px auto;
 	padding: 0;
-	// background-color: $item-color;
 	@include contrasted($item-color);
 	max-width: $movie-item-width;
+	position: relative;
+
 	.img {
 		float: left;
 		padding: 0;
@@ -137,12 +138,12 @@ $block-spacing: 8px;
 			}
 		}
 		.hasVoted {
-			color: $hover-green;
+			color: $hover-grey;
 			button {
-				border-color: $hover-green;
+				border-color: $hover-grey;
 				&:hover,
 				&:active{
-					background-color: darken(white, 10%);
+					background-color: darken(white, 20%);
 				}
 			}
 		}
@@ -150,5 +151,15 @@ $block-spacing: 8px;
 			position: relative;
 			left: 10px;
 		}
+	}
+}
+
+.col-md-6.movie-item-wrap {
+	position: relative;
+	// transition: all 300ms 0ms ease-in;
+	&.animate {
+		@include transition-property(all);
+		@include transition-duration(0.3s);
+		@include transition-timing-function(ease-in);
 	}
 }
