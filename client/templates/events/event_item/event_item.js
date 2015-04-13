@@ -8,10 +8,9 @@ Template.EventItem.events({
 		$('#'+this._id).addClass('active-event');
 	},
 
-	'click [name=eventUrl]': function () {
-		return Router.go('event.id');
+	'click button[name=details]': function () {
+		return Router.go('event.id', {_id: this._id});
 	},
-
 	'click button[name=follow]': function () {
 		return Meteor.call('follow', this._id);
 	},

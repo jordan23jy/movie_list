@@ -1,5 +1,6 @@
 body {
 	@include contrasted($body-color);
+	font-family: $font-combo-1-2;
 
 	h1,
 	h2,
@@ -10,8 +11,6 @@ body {
 		font-family: $font-combo-1-1;
 	}
 
-	font-family: $font-combo-1-2;
-
 	.container-fluid.disqus-container {
 		@include contrasted($color-clouds);
 	}
@@ -19,5 +18,8 @@ body {
 	.jumbotron {
 		color: $font-color-dark;
 		// height: 100px;
+	}
+	.container {
+		margin-top: 20px;
 	}
 }

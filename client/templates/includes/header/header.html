@@ -1,4 +1,36 @@
 <template name="Header">
+  <div class="container-fluid header">
+    <div class="container container-nav">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav">
+            <li><a class="brand" href="/">Movies</a></li>
+          </ul>
+        </div>
+        <!-- Collect the nav link, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="{{pathFor 'home'}}">Discover</a></li>
+            <li class=""><a href="{{pathFor 'events'}}">Events</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>{{> loginButtons}}</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</template>
+
+
+<template name="temp">
   <div class="container">
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
