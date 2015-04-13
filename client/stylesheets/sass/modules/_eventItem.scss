@@ -88,3 +88,9 @@ $background-color: darken($color-clouds, 10%);
 	}
 }
 
+button#showAllEvents {
+	&:hover,
+	&:active {
+		background-color: $hover-green;
+	}
+}

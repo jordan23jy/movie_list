@@ -23,12 +23,14 @@ body {
 		margin-top: 20px;
 	}
 	.container-fluid {
-		&#event-create-list {
+		&#event-create-list,
+		&#event-item-container {
 			background-color: $color-belize-hole;
 			padding-top: 10px;
 			padding-bottom: 20px;
 
 		}
+
 	}
 }
 
