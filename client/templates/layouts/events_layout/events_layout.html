@@ -37,16 +37,17 @@
     </div>
   </div>
 
-  <div class="container">
-    <!-- Render search bar if user is logged in -->
-    {{#if currentUser}}
-      {{> MovieInput}}
-    {{/if}}
+  <div class="container movie-list-container">
+
     <!-- Don't render movie list if event is not created -->
     {{#if eventNotCreated}}
     {{else}}
       <div class="row">
         <div class="movie-list-container">
+        <!-- Render search bar if user is logged in -->
+        {{#if currentUser}}
+          {{> MovieInput}}
+        {{/if}}
           <!-- Render Movie list of selected event -->
           {{#if isEventMovie}}
             {{> MovieList}}

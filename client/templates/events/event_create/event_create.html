@@ -1,37 +1,41 @@
 <template name="EventCreate">
-<div class="container">
+<div class="event-form" data-backdrop="false">
   <!-- Create event if logged in -->
   {{#if currentUser}}
     {{#if isEditing}}
+      <!-- EDIT -->
       <!-- Toggle Edit form if logged in and in editing state-->
-      <form name="edit">
-        <div class="form-group {{errorClass 'event_name'}}">
-          <label for="eventName">Event Name</label>
-          <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party" value="{{event_name}}">
-          <!-- Error message if blank -->
-          <span class="help-block">{{errorMessage 'event_name'}}</span>
-        </div>
-        <div class="form-group">
-          <label for="location" class="control-label">Location</label>
-            <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Plaza Hotel" value="{{location}}">
-        </div>
-        <div class="form-group">
-          <label for="time" class="control-label">Time</label>
-            <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 4pm" value="{{time}}">
-        </div>
-        <div class="form-group">
-            <button type="submit" name="save" class="btn btn-success">Save Edit</button>
-            <button type="submit" name="cancel" class="btn btn-danger">Cancel</button>
-        </div>
-      </form>
+      <div class="container" id="form-edit">
+        <form name="edit">
+          <div class="form-group {{errorClass 'event_name'}}">
+            <label for="eventName">Occasion</label>
+            <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party" value="{{event_name}}">
+            <!-- Error message if blank -->
+            <span class="help-block">{{errorMessage 'event_name'}}</span>
+          </div>
+          <div class="form-group">
+            <label for="location" class="control-label">Location</label>
+              <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Plaza Hotel" value="{{location}}">
+          </div>
+          <div class="form-group">
+            <label for="time" class="control-label">Time</label>
+              <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 4pm" value="{{time}}">
+          </div>
+          <div class="form-group">
+              <button type="submit" name="save" class="btn btn-success">Save Edit</button>
+              <button type="submit" name="cancel" class="btn btn-danger">Cancel</button>
+          </div>
+        </form>
+      </div>
     {{else}}
+      <!-- CREATE -->
       <!-- Toggle Create form if logged in-->
         <div id="event-create" class="modal fade event-create" tabindex="-1" role="dialog" aria-labelledby="eventCreate" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <form name="create">
                 <div class="form-group {{errorClass 'event_name'}}">
-                  <label for="eventName">Event Name</label>
+                  <label for="eventName">Occasion</label>
                   <input type="text" class="form-control" name="event_name" placeholder="e.g. Pizza Party">
                   <!-- Error message if blank -->
                   <span class="help-block">{{errorMessage 'event_name'}}</span>
@@ -41,8 +45,8 @@
                   <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Plaza Hotel">
                 </div>
                 <div class="form-group">
-                  <label for="time">Time</label>
-                  <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 4pm">
+                  <label for="time">Time and Date</label>
+                  <input type="text" class="form-control" name="time_start" id="time" placeholder="e.g. 8pm Tuesday">
                 </div>
                 <div class="form-group">
                   <div class="">
@@ -56,6 +60,7 @@
     {{/if}}
   <!-- Else if not logged in prompt user to log in -->
   {{else}}
+  <!-- PROMPT LOG IN -->
     <form>
       <div id="event-create" class="modal fade event-create" tabindex="-1" role="dialog" aria-labelledby="eventCreate" aria-hidden="true">
         <div class="modal-dialog modal-lg">

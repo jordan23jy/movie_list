@@ -44,3 +44,8 @@ $max-width: 500px;
     @include border-radius(5px);
   }
 }
+
+#form-edit {
+  position: relative;
+  padding: 100px auto;
+}
