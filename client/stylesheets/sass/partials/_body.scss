@@ -20,7 +20,8 @@ body {
 		// height: 100px;
 	}
 	.container {
-		margin-top: 20px;
+		padding-top: 20px;
+		padding-bottom: 40px;
 	}
 	.container-fluid {
 		&#event-create-list,
@@ -31,6 +32,11 @@ body {
 
 		}
 
+	}
+
+	#footer-separator {
+		background-color: $color-clouds;
+		height: 150px;
 	}
 }
 
