@@ -36,7 +36,7 @@ Template.EventsLayout.helpers({
 	},
 
 	eventNotCreated: function () {
-		return Session.get('selectedEventId') ? false : true;
+		return Events.findOne({}) ? false : true;
 	},
 
 	notLoggedIn: function () {
@@ -55,13 +55,9 @@ Template.EventsLayout.rendered = function () {
 	Session.set('isEditing', false);
 	// initiate toggle event items
 	$('.collapse').collapse();
+	var eventId = Events.findOne()._id;
+	Session.set('selectedEventId', eventId);
 
-	// moveElement called whenever element position changes
-	this.find('.wrapper')._uihooks = {
-		moveElement: function (node, next) {
-
-		}
-	}
 };
 
 Template.EventsLayout.destroyed = function () {

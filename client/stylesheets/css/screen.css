@@ -209,22 +209,30 @@ fieldset, label {
   .stars input:checked ~ label:checked ~ label:hover {
     color: #fff3b3; }
 
+.row.event-list-container {
+  position: relative;
+  height: 100%;
+  display: block; }
+
 .event-content {
-  background-color: #404453;
-  color: #fff;
+  background-color: #cfd9db;
+  color: #000;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   max-width: 500px;
-  padding: 15px;
+  min-height: 220px;
+  padding: 20px;
   position: relative;
   padding-right: 115px;
   margin: 10px 0 10px 0;
-  border: 1px solid #e6e6e6; }
+  border: 1px solid #e6e6e6;
+  display: block; }
   .event-content:hover, .event-content:active, .event-content.active-event {
-    -moz-box-shadow: gray 2px 2px 10px;
-    -webkit-box-shadow: gray 2px 2px 10px;
-    box-shadow: gray 2px 2px 10px; }
+    -moz-box-shadow: #1a1a1a 2px 2px 10px;
+    -webkit-box-shadow: #1a1a1a 2px 2px 10px;
+    box-shadow: #1a1a1a 2px 2px 10px;
+    background-color: #b1c2c6; }
   .event-content h3 {
     margin-top: 0; }
   .event-content .side-toggle {
@@ -652,6 +660,10 @@ body {
     color: #4e5758; }
   body .container {
     margin-top: 20px; }
+  body .container-fluid#event-create-list {
+    background-color: #2980b9;
+    padding-top: 10px;
+    padding-bottom: 20px; }
 
 .container-fluid.header {
   height: 50px;

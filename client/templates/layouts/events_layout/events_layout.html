@@ -1,90 +1,72 @@
 <template name="EventsLayout">
-  <div class="container">
-     <!-- First Column -->
-    <!-- Show only when loged in -->
-    <div class="col-md-6 event-container">
-      {{#if currentUser}}
-        <div class="col-md-12 event-input">
-          <!-- Render button which toggles EventCreate modal -->
+  <div class="container-fluid" id="event-create-list">
+    <div class="container">
+
+      <div class="row">
+        <div class="event-create-container">
+          <!-- Button to toggle create event modal -->
           <div class="form-toggle">
               <button type="button" data-toggle="modal" data-target="#event-create">Create an Event <i class="fa fa-plus"></i></button>
           </div>
+          <!-- Event Create Form Modal -->
           {{> EventCreate}}
         </div>
+      </div>
 
-        <div class="col-md-12 event-item">
-          <!-- Toggle button -->
+      <div class="row event-list-container">
+        <!-- <div class="event-list-container"> -->
+          <!-- Button to toggle list of events -->
           <button class="btn-style" type="button" data-toggle="collapse" data-target="#collapse-content" aria-expanded="false" aria-controls="collapseExample">
             Show All Events <i class="fa fa-caret-down"></i>
           </button>
 
-          <div class="collapse" id="collapse-content">
-            {{#each events}}
-              {{> EventItem}}
-            {{/each}}
-          </div>
-
-        </div>
-
-      {{else}}
-        <div class="col-md-12 log jumbotron text-center">
-          <h3>Please log in to add an event</h3>
-        </div>
-      {{/if}}
-    </div>
-
-    <!-- Second Column -->
-    <div class="col-md-6 movie-container">
-      <!-- If not logged in -->
-      {{#if notLoggedIn}}
-        <div class="log jumbotron text-center">
-          <h3>Please log in to add a movie</h3>
-        </div>
-      {{else}}
-        <!-- else if logged in -->
-        <!-- If event not created -->
-        {{#if eventNotCreated}}
-          <div class="jumbotron text-center">
-            <h3>Please create an event</h3>
-          </div>
-        <!-- else if event created -->
-        {{else}}
-          <!-- If Logged In -->
-          {{#if currentUser}}
-            <div class="row movie-input">
-              {{> MovieInput}}
+          <!-- Show list of events -->
+          <!-- If event not created, prompt to create an event -->
+          {{#if eventNotCreated}}
+            <div class="jumbotron text-center">
+              <h3>Please create an event</h3>
             </div>
-            <!-- Show Movies from selected Event -->
-            <div class="row movie-item">
-              <!-- if is current event movie -->
-              {{#if isEventMovie}}
-                <div class="wrapper">
-                  {{#each movies}}
-                    {{> MovieItem}}
-                  {{/each}}
+          {{else}}
+            <!-- Render Events -->
+            <div class="collapse" id="collapse-content">
+              {{#each events}}
+                <div class="col-md-6">
+                  {{> EventItem}}
                 </div>
-              <!-- else if no movie in event -->
-              {{else}}
-                <!-- If no movie added -->
-                <div class="jumbotron text-center">
-                  <h3>Add a movie</h3>
-                </div>
-              <!-- End if is selected event movie -->
-              {{/if}}
+              {{/each}}
             </div>
-          <!-- End if current user -->
           {{/if}}
-        <!-- End if event not created -->
-        {{/if}}
-      <!-- End if not logged in -->
-      {{/if}}
+        <!-- </div> -->
+      </div>
     </div>
+  </div>
 
+  <div class="container">
+    <!-- Don't render movie list if event is not created -->
+    {{#if eventNotCreated}}
+    {{else}}
+      <div class="row">
+        <div class="movie-list-container">
+          <!-- Render Movie list of selected event -->
+          {{#if isEventMovie}}
+            {{> MovieList}}
+          {{else}}
+            <!-- Prompt add a movie -->
+            <div class="jumbotron text-center">
+              <h3>Add a movie</h3>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    {{/if}}
+  </div>
   <!-- Movie Info Modal -->
   <!-- Will render when movie item is clicked -->
   {{> MovieItemInfo}}
   <!-- Trailer Modal -->
   <!-- Will render when trailer button is clicked -->
   {{> Trailer}}
-  </div>
+
+
+
 </template>

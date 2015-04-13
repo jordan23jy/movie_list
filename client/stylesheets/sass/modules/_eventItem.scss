@@ -1,21 +1,31 @@
 $max-eventItem-width: 500px;
+$min-eventItem-height: 220px;
 $side-toggle-width: 100px;
-$background-color: $item-color;
+$background-color: darken($color-clouds, 10%);
+
+.row.event-list-container {
+	position: relative;
+	height: 100%;
+	display: block;
+}
 
 .event-content {
 	@include contrasted($background-color);
 	@include border-radius(5px);
 	max-width: $max-eventItem-width;
-	padding: 15px;
+	min-height: $min-eventItem-height;
+	padding: 20px;
 	position: relative;
 	padding-right: $side-toggle-width + 15px;
 	margin: 10px 0 10px 0;
 	border: 1px solid darken(white, 10%);
+	display: block;
 	&:hover,
 	&:active,
 	&.active-event {
 		// border: 1px solid white;
-		@include box-shadow(lighten(black,50%) 2px 2px 10px);
+		@include box-shadow(lighten(black,10%) 2px 2px 10px);
+		background-color: darken($background-color, 10%);
 	}
 	h3 {
 		margin-top: 0;
