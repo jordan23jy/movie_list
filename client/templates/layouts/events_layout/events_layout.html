@@ -29,11 +29,7 @@
           {{else}}
             <!-- Render Events -->
             <div class="collapse" id="collapse-content">
-              {{#each events}}
-                <div class="col-md-6">
-                  {{> EventItem}}
-                </div>
-              {{/each}}
+              {{> EventList}}
             </div>
           {{/if}}
         <!-- </div> -->
@@ -42,6 +38,10 @@
   </div>
 
   <div class="container">
+    <!-- Render search bar if user is logged in -->
+    {{#if currentUser}}
+      {{> MovieInput}}
+    {{/if}}
     <!-- Don't render movie list if event is not created -->
     {{#if eventNotCreated}}
     {{else}}

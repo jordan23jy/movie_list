@@ -8,15 +8,18 @@ Template.EventCreate.events({
 
 		// set as current event when submitted
 		var eventDetails = getFormData('form');
-		var username = Meteor.user().username;
-		var userId = Meteor.userId();
+		// var username = Meteor.user().username;
+		// var userId = Meteor.userId();
 
-		_.extend(eventDetails, {
-			created_by_id: userId,
-			created_date: new Date(),
-			followers: [username],
-			followers_id: [userId]
-		})
+		// _.extend(eventDetails, {
+		// 	created_by_id: userId,
+		// 	created_date: new Date(),
+		// 	followers: [username],
+		// 	followers_id: [userId]
+		// })
+		// var url = Router.current().originalUrl;
+
+		// console.log(url);
 
 		var errors = {};
 		if (!eventDetails.event_name) {
@@ -28,7 +31,7 @@ Template.EventCreate.events({
 			if (err) {
 				console.log(err.reason);
 			} else {
-				Session.set('selectedEventId', res);
+				Session.set('selectedEventId', res._id);
 				// clear form
 				$('form input').val('');
 				// closes modal window

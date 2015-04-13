@@ -536,7 +536,7 @@ fieldset, label {
 .box {
   margin: 20px 0 20px 0;
   height: 50px;
-  max-width: 800px; }
+  width: 100%; }
 
 .searchbox {
   vertical-align: middle;
@@ -558,7 +558,6 @@ fieldset, label {
   .searchbox .search {
     overflow: hidden; }
     .searchbox .search input#query {
-      max-width: 800px;
       height: 50px;
       border: none;
       border-bottom: 3px solid rgba(0, 0, 0, 0.1);
@@ -606,7 +605,6 @@ fieldset, label {
   .searchbox:hover button.icon:hover {
     background: white; }
   .searchbox .autocomplete {
-    max-width: 800px;
     position: relative; }
     .searchbox .autocomplete span {
       position: relative;
