@@ -17,8 +17,10 @@
 						<span class="date">[{{release_date}}]</span>
 						<span class="line-break"></span>
 					</div>
-					<!-- Delete button -->
-					<button class="delete"><i class="fa fa-times"></i></button>
+					{{#if hasEvent}}
+						<!-- Delete button -->
+						<button class="delete"><i class="fa fa-times"></i></button>
+					{{/if}}
 				</div>
 
 				<!-- Ratings -->

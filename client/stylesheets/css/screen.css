@@ -221,24 +221,23 @@ fieldset, label {
   display: block; }
 
 .event-content {
-  background-color: #cfd9db;
-  color: #000;
+  background-color: #164666;
+  color: #fff;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   max-width: 500px;
   min-height: 220px;
-  padding: 20px;
+  padding: 25px;
   position: relative;
   padding-right: 115px;
   margin: 10px 0 10px 0;
-  border: 1px solid #e6e6e6;
   display: block; }
   .event-content:hover, .event-content:active, .event-content.active-event {
     -moz-box-shadow: #1a1a1a 2px 2px 10px;
     -webkit-box-shadow: #1a1a1a 2px 2px 10px;
     box-shadow: #1a1a1a 2px 2px 10px;
-    background-color: #b1c2c6; }
+    background-color: #0d293c; }
   .event-content h3 {
     margin-top: 0; }
   .event-content .side-toggle {
@@ -248,8 +247,7 @@ fieldset, label {
     top: 0;
     right: 0;
     position: absolute;
-    height: 100%;
-    border-left: 1px solid #e6e6e6; }
+    height: 100%; }
     .event-content .side-toggle button {
       border: none;
       background-color: transparent;
@@ -274,8 +272,12 @@ fieldset, label {
   -webkit-border-radius: 5px;
   border-radius: 5px; }
 
-button#showAllEvents:hover, button#showAllEvents:active {
-  background-color: #1b7943; }
+button#showAllEvents {
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #FFF; }
+  button#showAllEvents:hover, button#showAllEvents:active {
+    background-color: #1b7943; }
 
 .form-toggle {
   margin-top: 8px;
@@ -283,7 +285,9 @@ button#showAllEvents:hover, button#showAllEvents:active {
   .form-toggle button {
     padding: 15px;
     width: 100%;
-    outline: none; }
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #FFF; }
     .form-toggle button:hover, .form-toggle button:active {
       background-color: #1b7943; }
     .form-toggle button i {
@@ -547,7 +551,8 @@ button#showAllEvents:hover, button#showAllEvents:active {
   background-color: black; }
 
 .box {
-  margin: 20px 0 20px 0;
+  position: relative;
+  margin: 20px 0 50px 0;
   height: 50px;
   width: 100%; }
 
@@ -734,7 +739,7 @@ button#showAllEvents:hover, button#showAllEvents:active {
       background-color: #e6c200; }
 
 body {
-  font-family: "Verdana", "sans-serif", "Arial"; }
+  font-family: "raleway", "arial", "sans-serif"; }
   body #main {
     background-color: #404453;
     color: #fff;
@@ -749,7 +754,8 @@ body {
   body h4,
   body h5,
   body h6 {
-    font-family: "Georgia", "Serif", "Palinto"; }
+    font-family: "raleway", "arial", "sans-serif";
+    font-weight: 600; }
   body .container-fluid.disqus-container {
     background-color: #ecf0f1;
     color: #000; }
@@ -897,7 +903,9 @@ body {
   .big-logo-row h1 {
     font-size: 4em;
     margin: 0;
-    padding: 0 0 15px 0; }
+    padding: 0 0 15px 0;
+    font-family: "Georgia", "Serif", "Palinto";
+    font-weight: 400; }
     @media (min-width: 400px) {
       .big-logo-row h1 {
         font-size: 4.5em; } }

@@ -1,6 +1,6 @@
 // button style carried from _common.scss
 $max-width: 500px;
-
+$button-color: darken($color-belize-hole, 20%);
 .form-toggle {
   // max-width: $max-width;
   margin-top: 8px;
@@ -9,10 +9,12 @@ $max-width: 500px;
     padding: 15px;
     width: 100%;
     outline: none;
+    // background-color: $button-color;
+    border: none;
+    border-bottom: 2px solid #FFF;
     &:hover,
     &:active {
       background-color: $hover-green;
-      // @include transform(scale(1.5));
     }
     i {
       margin-left: 10px;

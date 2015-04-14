@@ -1,8 +1,8 @@
 $max-eventItem-width: 500px;
 $min-eventItem-height: 220px;
 $side-toggle-width: 100px;
-$background-color: darken($color-clouds, 10%);
-
+$background-color: darken($color-belize-hole, 20%);
+// darken($color-clouds, 10%)
 .row.event-list-container {
 	position: relative;
 	height: 100%;
@@ -14,11 +14,11 @@ $background-color: darken($color-clouds, 10%);
 	@include border-radius(5px);
 	max-width: $max-eventItem-width;
 	min-height: $min-eventItem-height;
-	padding: 20px;
+	padding: 25px;
 	position: relative;
 	padding-right: $side-toggle-width + 15px;
 	margin: 10px 0 10px 0;
-	border: 1px solid darken(white, 10%);
+	// border: 1px solid darken(white, 10%);
 	display: block;
 	&:hover,
 	&:active,
@@ -42,7 +42,7 @@ $background-color: darken($color-clouds, 10%);
 		right: 0;
 		position: absolute;
 		height: 100%;
-		border-left: 1px solid darken(white, 10%);
+		// border-left: 1px solid darken(white, 10%);
 
 		button {
 			border: none;
@@ -89,6 +89,9 @@ $background-color: darken($color-clouds, 10%);
 }
 
 button#showAllEvents {
+	margin-bottom: 20px;
+	border: none;
+	border-bottom: 2px solid #FFF;
 	&:hover,
 	&:active {
 		background-color: $hover-green;

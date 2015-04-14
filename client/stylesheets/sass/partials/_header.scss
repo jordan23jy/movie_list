@@ -75,6 +75,8 @@ ul.nav {
     font-size: 4em;
     margin:0;
     padding:0 0 $big-logo-padding 0;
+    font-family: $font-combo-1-1;
+    font-weight: 400;
 
     @media (min-width: 400px) { font-size: 4.5em; }
     @media (min-width: 440px) { font-size: 5.5em; }
