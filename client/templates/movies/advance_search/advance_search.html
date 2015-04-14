@@ -1,0 +1,30 @@
+<template name="AdvanceSearch">
+	<div class="advance-search">
+		<h1>Discover <span>Movies</span></h1>
+
+		<select>
+				<option value="hide" name="year">-- Year --</option>
+				<option value="" name="year">-- All --</option>
+		 		{{#each years}}
+					<option value="{{year}}" name="year">{{year}}</option>
+		  	{{/each}}
+
+		</select>
+
+		<select>
+				<option value="hide" name="genre">-- Genre --</option>
+				<option value="" name="genre">-- All --</option>
+				{{#each genre}}
+	    		<option value="{{id}}" name="genre">{{name}}</option>
+	    	{{/each}}
+
+		</select>
+
+		<div class="select">
+			<button class="search">
+				<span>Search</span>
+			</button>
+		</div>
+
+	</div>
+</template>

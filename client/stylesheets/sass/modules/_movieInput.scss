@@ -31,7 +31,7 @@
 			border-bottom: 3px solid rgba(0, 0, 0, 0.1);
 			font-size: 10pt;
 			float: left;
-			padding-left: 15px;
+			// padding-left: 15px;
 
 
 			@include input-placeholder {
@@ -49,8 +49,9 @@
 			height: 50px;
 			width: 50px;
 			color: #4f5b66;
-			opacity: 0;
+			// opacity: 0;
 			font-size: 10pt;
+			margin-left: -50px;
 		}
 	}
 
@@ -58,8 +59,8 @@
 	&:active {
 		button.icon {
 			outline: none;
-			opacity: 1;
-			margin-left: -50px;
+			// opacity: 1;
+			// margin-left: -50px;
 		}
 	}
 

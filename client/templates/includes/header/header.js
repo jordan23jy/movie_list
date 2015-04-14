@@ -54,7 +54,3 @@ Template.Header.rendered = function () {
 
 Template.Header.destroyed = function () {
 };
-
-// $(document).on('scroll', function (e) {
-//     $('.navbar').css('opacity', ($(document).scrollTop() / 500));
-// });

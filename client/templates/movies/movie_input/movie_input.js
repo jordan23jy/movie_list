@@ -2,7 +2,7 @@
 /* MovieInput: Event Handlers */
 /*****************************************************************************/
 Template.MovieInput.events({
-	'submit form': function (e, tmpl) {
+	'submit form, click .movieadd input[type=radio]': function (e, tmpl) {
 		e.preventDefault();
 
 		// var movieData = getFormData('form[name=movieadd]');
@@ -24,6 +24,8 @@ Template.MovieInput.events({
 
 		clearAutocomplete();
 	},
+
+
 
 	// search for movies when typing
 	'keyup .searchbox': function(e, tmpl) {

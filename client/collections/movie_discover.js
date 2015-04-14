@@ -1,0 +1,1 @@
+MovieDiscover = new Mongo.Collection();

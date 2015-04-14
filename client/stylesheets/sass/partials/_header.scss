@@ -24,13 +24,15 @@ $small-logo-padding: 2px; // of bottom padding to look nice
     background: rgba(255,255,255,0.75);
   }
 }
+
 .navbar-inverse .navbar-nav > li > a {
 color: black;
 font-size: 1.5em;
 
 
 }
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
 color: white;
 border-bottom: 3px solid white;
 
@@ -53,6 +55,10 @@ ul.nav {
   color: white;
   font-size: 2.5em;
   padding-bottom: $small-logo-padding;
+}
+
+.container#small-navbar {
+  padding: 5px 15px 5px 25px;
 }
 
 /* *********************************

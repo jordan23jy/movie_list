@@ -7,17 +7,28 @@ footer {
   color: #CCC;
   text-align: center;
   bottom: 0;
+  p,
   span {
     position: fixed;
     z-index: -1;
     left: 50%;
     bottom: 35px;
-    margin-left: -400px;
     max-width: 1200px;
     text-align: center;
     color: #FFF;
-    font-size: 10rem;
     font-weight: 700;
+    font-size: 10rem;
+    @media (max-width: 400px) { font-size: 2.5rem; margin-left: -100px}
+    @media (min-width: 440px) { font-size: 3.5rem; margin-left: -150px}
+    @media (min-width: 500px) { font-size: 4.5rem; margin-left: -200px}
+    @media (min-width: 630px) { font-size: 5.5rem; margin-left: -250px}
+    @media (min-width: 768px) { font-size: 6.0rem; margin-left: -300px}
+    @media (min-width: 1200px) { font-size: 10rem; margin-left: -400px}
+  }
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    bottom: 25px;
   }
 }
 

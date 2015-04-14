@@ -8,18 +8,6 @@ Template.EventCreate.events({
 
 		// set as current event when submitted
 		var eventDetails = getFormData('form');
-		// var username = Meteor.user().username;
-		// var userId = Meteor.userId();
-
-		// _.extend(eventDetails, {
-		// 	created_by_id: userId,
-		// 	created_date: new Date(),
-		// 	followers: [username],
-		// 	followers_id: [userId]
-		// })
-		// var url = Router.current().originalUrl;
-
-		// console.log(url);
 
 		var errors = {};
 		if (!eventDetails.event_name) {
@@ -27,17 +15,26 @@ Template.EventCreate.events({
 			return Session.set('submitError', errors);
 		}
 
+		var eventId;
 		Meteor.call('eventInsert', eventDetails, function(err, res) {
 			if (err) {
 				console.log(err.reason);
 			} else {
 				Session.set('selectedEventId', res._id);
+				eventId = res._id;
 				// clear form
 				$('form input').val('');
 				// closes modal window
 				$('.event-create').modal('toggle');
+
 			}
-		})
+		});
+		// var eventId = Session.get('selectedEventId')
+		// go to event page
+		Meteor.setTimeout(function() {
+			Router.go('event.id', {_id: eventId});
+		}, 500)
+
 	},
 
 	'submit form[name=edit]': function (e, tmpl) {

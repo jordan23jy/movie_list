@@ -43,8 +43,48 @@ body {
 	}
 
 	#footer-separator {
-		background-color: darken($color-clouds, 10%);
-		// opacity: 0.8;
+		background-color: #FFF;
 		height: 150px;
+	}
+
+	#load-more {
+		position: relative;
+		background-color: $color-belize-hole;
+		min-height: 220px;
+		color: #FFF;
+		span {
+			@include center;
+			font-size: 4rem;
+			font-weight: 700;
+			bottom: 100px;
+			color: #FFF;
+		}
+		.load-more,
+		&:active,
+		&:hover {
+			background-color: #FFF;
+			color: $color-belize-hole;
+		}
+		@include keyframes(bounce) {
+			0%, 20%, 50%, 80%, 100% {
+		    @include transform(translateY(0));
+		  }
+			40% {
+		    @include transform(translateY(-30px));
+		  }
+			60% {
+		    @include transform(translateY(-15px));
+		  }
+		}
+		.arrow {
+		  @include center;
+		  top: 35px;
+		  margin-left:-20px;
+		  background-size: contain;
+		}
+
+		.bounce {
+		  @include animation(bounce 2s infinite);
+		}
 	}
 }
